@@ -4,7 +4,7 @@ const container = '#app';
 
 document.addEventListener('DOMContentLoaded', () => {
   if (document.querySelector(container)) {
-    const { app } = createApp();
+    const { app } = createApp({});
     app.$mount(container);
   };
 });

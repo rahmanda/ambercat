@@ -6,6 +6,7 @@ const webpackMerge = require('webpack-merge');
 
 module.exports = webpackMerge(defaultConfig, {
   target: 'node',
+  devtool: false,
   entry: path.resolve(__dirname, './src/entry-server.js'),
   output: {
     filename: 'server.build.js',
