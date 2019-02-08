@@ -1,8 +1,6 @@
 const fs = require('fs');
 const server = require('express')();
-const renderer = require('vue-server-renderer').createRenderer({
-  template: fs.readFileSync('./src/template.html', 'utf-8'),
-});
+const renderer = require('vue-server-renderer').createRenderer();
 const createApp = require('./build/server.build').default;
 const htmlGenerator = new require('markdown-it')();
 const frontmatter = require('gray-matter');
