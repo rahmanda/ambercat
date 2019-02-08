@@ -4,6 +4,7 @@
   "description": "ambercat.rahmanda.net",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint './src/**/*.{js,vue}' --fix ; exit 0",
     "client:build": "webpack --mode production --config webpack.client.config.js",
     "renderer:build": "webpack --mode production --config webpack.renderer.config.js",
     "renderer:run": "node ./build/renderer.js"
@@ -34,8 +35,10 @@
   "devDependencies": {
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.3.1",
+    "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.5",
     "eslint": "^5.13.0",
+    "eslint-plugin-vue": "^5.1.0",
     "vue-loader": "^15.6.2",
     "vue-template-compiler": "^2.6.3",
     "webpack": "^4.29.3",

@@ -4,7 +4,7 @@ import Vue from 'vue';
 const container = '#app';
 
 function init(selector) {
-  const app = new Vue({
+  return new Vue({
     el: selector,
     render: h => h(App),
   });
