@@ -6,9 +6,9 @@ const webpackMerge = require('webpack-merge');
 
 module.exports = webpackMerge(defaultConfig, {
   target: 'node',
-  entry: path.resolve(__dirname, './src/server.js'),
+  entry: path.resolve(__dirname, './src/entry-server.js'),
   output: {
-    filename: 'renderer.js',
+    filename: 'server.build.js',
     libraryTarget: 'commonjs2',
   },
   externals: Object.keys(require('./package.json').dependencies),

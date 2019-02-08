@@ -3,10 +3,10 @@ const vueloader = require('vue-loader');
 
 module.exports = {
   target: 'web',
-  entry: path.resolve(__dirname, './src/client.js'),
+  entry: path.resolve(__dirname, './src/entry-client.js'),
   output: {
     path: path.resolve(__dirname, 'build'),
-    filename: 'client.js',
+    filename: 'client.build.js',
   },
   module: {
     rules: [
