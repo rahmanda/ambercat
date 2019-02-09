@@ -1,13 +1,13 @@
-const { resolve } = require('path');
+const { resolve } = require('app-root-path');
 const vueloader = require('vue-loader');
 const config = require('./ambercat.config.js');
 
 module.exports = {
   target: 'web',
-  devtool: 'source-map',
-  entry: resolve(process.cwd(), 'src/entry-client.js'),
+  devtool: config.client.devtool,
+  entry: config.client.entryFile,
   output: {
-    path: resolve(process.cwd(), config.buildPath),
+    path: config.client.buildPath,
     publicPath: config.publicPath,
     chunkFilename: `${config.client.chunkPrefix}.[chunkhash].js`,
     filename: `${config.client.buildPrefix}.[contenthash].js`,
@@ -31,7 +31,7 @@ module.exports = {
   },
   resolve: {
     alias: {
-      '@': resolve(process.cwd()),
+      '@': resolve('/'),
     },
     extensions: ['*', '.js', '.vue', '.json', '.md'],
   },

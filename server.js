@@ -1,7 +1,7 @@
-const { resolve } = require('path');
+const { resolve, require: reqRoot } = require('app-root-path');
 const fs = require('fs');
 const express = require('express');
-const reqRoot = require('app-root-path').require;
+const config = reqRoot('config/ambercat.config');
 const renderer = reqRoot('lib/renderer');
 const htmlCompiler = reqRoot('lib/html-compiler');
 const assetCompiler = reqRoot('lib/asset-compiler');
@@ -12,7 +12,7 @@ const port = 3000;
 
 function generateContent(filepath) {
   try {
-    const path = resolve(process.cwd(), filepath);
+    const path = resolve(filepath);
     const fileBlob = fs.readFileSync(filepath, 'utf-8');
     return htmlCompiler(fileBlob);
   } catch (err) {
@@ -20,7 +20,7 @@ function generateContent(filepath) {
   }
 }
 
-server.use(express.static('build'));
+server.use(express.static(config.client.buildPath));
 
 server.get('/:slug', (req, res) => {
   try {

@@ -1,4 +1,5 @@
 const path = require('path');
+const { resolve: resRoot } = require('app-root-path');
 const glob = require('glob');
 const fs = require('fs');
 
@@ -23,7 +24,7 @@ function mainTemplate(filenames) {
 }
 
 function filenames() {
-  const postsPath = path.resolve(process.cwd(), 'posts');
+  const postsPath = resRoot('posts');
   const globPostsPath = `${postsPath}/*.md`;
   return glob
         .sync(globPostsPath)
@@ -31,7 +32,7 @@ function filenames() {
 }
 
 function main() {
-  const targetFile = path.resolve(process.cwd(), 'tmp/posts.js');
+  const targetFile = resRoot('tmp/posts.js');
   ensureDirectoryExistence(targetFile);
   fs.writeFileSync(targetFile, mainTemplate(filenames()), 'utf-8');
 }
