@@ -6,11 +6,8 @@
 </template>
 
 <script>
-import MarkdownIt from 'markdown-it';
-import frontmatter from 'gray-matter';
 import posts from '@/tmp/posts';
-
-const htmlGenerator = new MarkdownIt();
+import htmlCompiler from '@/lib/html-compiler';
 
 export default {
   props: ['content'],
@@ -25,8 +22,10 @@ export default {
       const path = this.$route.path.split('/')[1];
       posts[path]()
         .then(({ default: file }) => {
-          const { content } = frontmatter(file);
-          this.postContent = htmlGenerator.render(content);
+          this.postContent = htmlCompiler(file).content;
+        })
+        .catch(err => {
+          console.log(err);
         });
     }
   },
