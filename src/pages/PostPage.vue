@@ -7,7 +7,7 @@
 
 <script>
 import posts from '@/tmp/posts';
-import htmlCompiler from '@/lib/html-compiler';
+import markdownCompiler from '@/lib/markdown-compiler';
 
 export default {
   props: ['content'],
@@ -19,10 +19,11 @@ export default {
   },
   mounted() {
     if (!this.postContent) {
-      const path = this.$route.path.split('/')[1];
+      const path = this.$route.path.split('/')[1].split('.html')[0];
       posts[path]()
         .then(({ default: file }) => {
-          this.postContent = htmlCompiler(file).content;
+          this.postContent = markdownCompiler(file).content;
+
         })
         .catch(err => {
           console.log(err);

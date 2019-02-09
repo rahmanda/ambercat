@@ -6,14 +6,14 @@ module.exports = {
   serverPort: 3000,
   templatePath: resRoot('src/template.html'),
   client: {
-    buildPath: resRoot('build/client'),
+    buildPath: resolve(process.cwd(), 'build'),
     buildPrefix: 'client.build',
     chunkPrefix: '[name].chunk',
     devtool: 'source-map',
     entryFile: resRoot('src/entry-client.js'),
   },
   server: {
-    buildPath: resRoot('build/server'),
+    buildPath: resRoot('tmp'),
     buildPrefix: 'server.build',
     devtool: false,
     entryFile: resRoot('src/entry-server.js'),
@@ -27,7 +27,6 @@ module.exports = {
     configPath: resolve(process.cwd(), 'config'),
     themePath: resolve(process.cwd(), 'theme'),
     postsPath: resolve(process.cwd(), 'posts'),
-    pagesPath: resolve(process.cwd(), 'pages'),
     publicPath: resolve(process.cwd(), 'public'),
   },
 };
