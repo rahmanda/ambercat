@@ -20,7 +20,6 @@ module.exports = {
   },
   importer: {
     postsFile: resRoot('tmp/posts.js'),
-    pagesFile: resRoot('tmp/pages.js'),
   },
   user: {
     rootPath: resolve(process.cwd()),
