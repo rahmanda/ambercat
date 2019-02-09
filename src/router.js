@@ -6,7 +6,7 @@ import FourOhFourPage from './pages/FourOhFourPage.vue';
 
 Vue.use(Router);
 
-export function createRouter(serverMode = false) {
+export function createRouter() {
   return new Router({
     mode: 'history',
     routes: [
