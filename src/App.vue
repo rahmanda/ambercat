@@ -1,11 +1,11 @@
 <template>
   <div id="app">
-    <router-view v-bind="$props"/>
+    <router-view :content="content"/>
   </div>
 </template>
 
 <script>
 export default {
-  props: ['url', 'content'],
+  props: ['content'],
 }
 </script>

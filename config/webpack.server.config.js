@@ -1,18 +1,21 @@
 const defaultConfig = require('./webpack.config');
-const path = require('path');
+const { resolve } = require('path');
 const vueloader = require('vue-loader');
 const webpack = require('webpack');
 const webpackMerge = require('webpack-merge');
+const config = require('./ambercat.config.js');
+
+const packagePath = resolve(process.cwd(), 'package.json');
 
 module.exports = webpackMerge(defaultConfig, {
   target: 'node',
   devtool: false,
-  entry: path.resolve(__dirname, './src/entry-server.js'),
+  entry: resolve(process.cwd(), 'src/server/entry.js'),
   output: {
-    filename: 'server.build.js',
+    filename: `${config.server.buildPrefix}.js`,
     libraryTarget: 'commonjs2',
   },
-  externals: Object.keys(require('./package.json').dependencies),
+  externals: Object.keys(require(packagePath).dependencies),
   plugins: [
     new webpack.DefinePlugin({
       'process.env': 'production',
