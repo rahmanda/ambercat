@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-html="content"/>
+    <div v-html="postContent"/>
     <button type="button" @click="add">{{ count }}</button>
   </div>
 </template>
@@ -13,19 +13,22 @@ import posts from '@/tmp/posts';
 const htmlGenerator = new MarkdownIt();
 
 export default {
+  props: ['content'],
   data() {
     return {
       count: 0,
-      content: '',
+      postContent: this.content,
     };
   },
   mounted() {
-    const path = this.$route.path.split('/')[1];
-    posts[path]()
-      .then(({ default: file }) => {
-        const { content } = frontmatter(file);
-        this.content = htmlGenerator.render(content);
-      });
+    if (!this.postContent) {
+      const path = this.$route.path.split('/')[1];
+      posts[path]()
+        .then(({ default: file }) => {
+          const { content } = frontmatter(file);
+          this.postContent = htmlGenerator.render(content);
+        });
+    }
   },
   methods: {
     add() {

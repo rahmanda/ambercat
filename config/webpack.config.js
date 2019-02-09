@@ -5,7 +5,7 @@ const config = require('./ambercat.config.js');
 module.exports = {
   target: 'web',
   devtool: 'source-map',
-  entry: resolve(process.cwd(), 'src/client/entry.js'),
+  entry: resolve(process.cwd(), 'src/entry-client.js'),
   output: {
     path: resolve(process.cwd(), config.buildPath),
     publicPath: config.publicPath,

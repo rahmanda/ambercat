@@ -1,6 +1,14 @@
-const { resolve, basename } = require('path');
+const path = require('path');
 const glob = require('glob');
 const fs = require('fs');
+
+function ensureDirectoryExistence(filePath) {
+  const dirname = path.dirname(filePath);
+  if (!fs.existsSync(dirname)) {
+    ensureDirectoryExistence(dirname);
+    fs.mkdirSync(dirname);
+  }
+}
 
 function dynamicImportTemplate(name, folder = 'posts') {
   return `
@@ -15,15 +23,16 @@ function mainTemplate(filenames) {
 }
 
 function filenames() {
-  const postsPath = resolve(process.cwd(), 'posts');
+  const postsPath = path.resolve(process.cwd(), 'posts');
   const globPostsPath = `${postsPath}/*.md`;
   return glob
         .sync(globPostsPath)
-        .map(post => basename(post, '.md'));
+        .map(post => path.basename(post, '.md'));
 }
 
 function main() {
-  const targetFile = resolve(process.cwd(), 'tmp/posts.js');
+  const targetFile = path.resolve(process.cwd(), 'tmp/posts.js');
+  ensureDirectoryExistence(targetFile);
   fs.writeFileSync(targetFile, mainTemplate(filenames()), 'utf-8');
 }
 

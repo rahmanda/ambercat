@@ -6,8 +6,8 @@
   "scripts": {
     "cleanup": "rimraf ./build",
     "lint": "eslint './src/**/*.{js,vue}' --fix ; exit 0",
-    "build": "npm run build:client && npm run build:server",
-    "build:client": "node ./scripts/post-resolver && webpack --mode development --config ./config/webpack.client.config.js",
+    "build": "node ./scripts/post-resolver && npm run build:client && npm run build:server",
+    "build:client": "webpack --mode development --config ./config/webpack.client.config.js",
     "build:server": "webpack --mode production --config ./config/webpack.server.config.js",
     "server": "npm run cleanup && npm run build && node ./server.js"
   },

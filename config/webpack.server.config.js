@@ -10,7 +10,7 @@ const packagePath = resolve(process.cwd(), 'package.json');
 module.exports = webpackMerge(defaultConfig, {
   target: 'node',
   devtool: false,
-  entry: resolve(process.cwd(), 'src/server/entry.js'),
+  entry: resolve(process.cwd(), 'src/entry-server.js'),
   output: {
     filename: `${config.server.buildPrefix}.js`,
     libraryTarget: 'commonjs2',
