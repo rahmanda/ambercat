@@ -8,7 +8,6 @@ const assetCompiler = reqRoot('lib/asset-compiler');
 const renderApp = reqRoot('lib/renderer');
 
 const server = express();
-const port = 3000;
 
 function generateContent(filepath) {
   try {
@@ -49,4 +48,4 @@ server.get('*', (req, res) => {
   }
 });
 
-server.listen(port, () => console.log(`Web running on http://localhost:${port}`));
+server.listen(config.serverPort, () => console.log(`Web is running on http://localhost:${config.serverPort}`));
