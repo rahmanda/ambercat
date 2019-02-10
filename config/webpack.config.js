@@ -1,4 +1,4 @@
-const { require: reqRoot } = require('app-root-path');
+const { require: reqRoot, resolve: resRoot } = require('app-root-path');
 const vueloader = require('vue-loader');
 const config = reqRoot('config');
 
@@ -37,6 +37,7 @@ module.exports = {
   resolve: {
     alias: {
       '@': config.userPath,
+      ambercat: resRoot('/'),
     },
     extensions: ['*', '.js', '.vue', '.json', '.md'],
   },

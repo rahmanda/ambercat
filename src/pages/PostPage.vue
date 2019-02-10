@@ -7,7 +7,7 @@
 
 <script>
 import posts from '@/tmp/posts';
-import markdownCompiler from '@/lib/markdown-compiler';
+import markdownCompiler from 'ambercat/lib/markdown-compiler';
 
 export default {
   props: ['content'],
