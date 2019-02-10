@@ -1,7 +1,10 @@
 #!/usr/bin/env node
 
 const path = require('path');
-const { require: reqRoot } = require('app-root-path');
+const { require: reqRoot, setPath } = require('app-root-path');
+
+setPath(path.resolve(__dirname));
+
 const config = reqRoot('config');
 const buildAsset = reqRoot('scripts/asset-builder');
 const cleanup = reqRoot('scripts/cleanup');
