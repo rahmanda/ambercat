@@ -5,8 +5,8 @@
   "bin": "./main.js",
   "scripts": {
     "lint": "eslint './src/**/*.{js,vue}' --fix ; exit 0",
-    "dev": "NODE_ENV=development node ./main.js dev",
-    "build": "NODE_ENV=production node ./main.js build"
+    "dev": "node ./main.js dev",
+    "build": "node ./main.js build"
   },
   "repository": {
     "type": "git",

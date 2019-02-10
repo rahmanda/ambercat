@@ -15,10 +15,12 @@ const server = reqRoot('scripts/server');
 const [, , ...args] = process.argv;
 
 if (args[0] === 'dev') {
+  process.env.NODE_ENV = 'development';
   dev();
 }
 
 else if (args[0] === 'build') {
+  process.env.NODE_ENV = 'production';
   build();
 }
 
