@@ -4,14 +4,9 @@
   "description": "ambercat.rahmanda.net",
   "main": "main.js",
   "scripts": {
-    "cleanup": "rimraf ./build",
     "lint": "eslint './src/**/*.{js,vue}' --fix ; exit 0",
-    "generate-importer": "node ./main.js importer",
-    "compile-static": "node ./main.js compile-static",
-    "build": "npm run generate-importer && npm run build:client && npm run build:server && npm run compile-static",
-    "build:client": "webpack --mode development --config ./config/webpack.client.config.js",
-    "build:server": "webpack --mode production --config ./config/webpack.server.config.js",
-    "dev": "npm run cleanup && npm run build && node ./main.js server"
+    "dev": "NODE_ENV=development node ./main.js dev",
+    "build": "NODE_ENV=production node ./main.js build"
   },
   "repository": {
     "type": "git",
@@ -35,6 +30,7 @@
     "@babel/core": "^7.2.2",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/preset-env": "^7.3.1",
+    "@vue/cli-shared-utils": "^3.4.0",
     "app-root-path": "^2.1.0",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.5",
@@ -43,6 +39,7 @@
     "gray-matter": "^4.0.2",
     "markdown-it": "^8.4.2",
     "raw-loader": "^1.0.0",
+    "rimraf": "^2.6.3",
     "vue": "2.6.3",
     "vue-loader": "^15.6.2",
     "vue-router": "^3.0.2",
@@ -50,11 +47,11 @@
     "vue-template-compiler": "2.6.3",
     "webpack": "^4.29.3",
     "webpack-cli": "^3.2.3",
+    "webpack-format-messages": "^2.0.5",
     "webpack-merge": "^4.2.1"
   },
   "devDependencies": {
     "eslint": "^5.13.0",
-    "eslint-plugin-vue": "^5.1.0",
-    "rimraf": "^2.6.3"
+    "eslint-plugin-vue": "^5.1.0"
   }
 }

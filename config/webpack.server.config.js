@@ -13,6 +13,7 @@ module.exports = webpackMerge(defaultConfig, {
   entry: config.server.entryFile,
   output: {
     path: config.server.buildPath,
+    publicPath: config.publicPath,
     filename: `${config.server.buildPrefix}.js`,
     libraryTarget: 'commonjs2',
   },

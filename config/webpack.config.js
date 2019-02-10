@@ -3,15 +3,7 @@ const vueloader = require('vue-loader');
 const config = reqRoot('config');
 
 module.exports = {
-  target: 'web',
-  devtool: 'source-map',
-  entry: config.client.entryFile,
-  output: {
-    path: config.client.buildPath,
-    publicPath: config.publicPath,
-    chunkFilename: `${config.client.chunkPrefix}.[chunkhash].js`,
-    filename: `${config.client.buildPrefix}.[contenthash].js`,
-  },
+  mode: process.env.NODE_ENV,
   module: {
     rules: [
       {
