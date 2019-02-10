@@ -1,10 +1,10 @@
-const { resolve } = require('app-root-path');
+const { require: reqRoot } = require('app-root-path');
 const vueloader = require('vue-loader');
-const config = require('./ambercat.config.js');
+const config = reqRoot('config');
 
 module.exports = {
   target: 'web',
-  devtool: config.client.devtool,
+  devtool: 'source-map',
   entry: config.client.entryFile,
   output: {
     path: config.client.buildPath,
@@ -31,7 +31,7 @@ module.exports = {
   },
   resolve: {
     alias: {
-      '@': resolve('/'),
+      '@': config.userPath,
     },
     extensions: ['*', '.js', '.vue', '.json', '.md'],
   },

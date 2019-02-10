@@ -3,7 +3,7 @@ const { require: reqRoot } = require('app-root-path');
 const vueloader = require('vue-loader');
 const webpack = require('webpack');
 const webpackMerge = require('webpack-merge');
-const config = require('./ambercat.config.js');
+const config = reqRoot('config');
 
 const externals = Object.keys(reqRoot('package.json').dependencies);
 
