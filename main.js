@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const path = require('path');
 const { require: reqRoot } = require('app-root-path');
 const config = reqRoot('config');
