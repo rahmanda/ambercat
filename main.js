@@ -18,10 +18,11 @@ else if (args[0] === 'build') {
 }
 
 function dev() {
-  build(() => server(config.client.buildPath, config.serverPort));
+  server(config.client.buildPath, config.serverPort);
+  build();
 }
 
-function build(callback) {
+function build() {
   const webpackConfigs = [
     reqRoot('config/webpack.client.config.js'),
     reqRoot('config/webpack.server.config.js'),
@@ -30,6 +31,5 @@ function build(callback) {
   generateImporter(config.post.importer);
   buildAsset(webpackConfigs, () => {
     compileStatic(config.post.compiler);
-    if (callback) callback();
   });
 }

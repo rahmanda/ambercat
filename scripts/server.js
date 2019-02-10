@@ -6,7 +6,13 @@ function devServer(staticPath, serverPort) {
   server.use(express.static(staticPath));
   server.listen(
     serverPort,
-    () => logger.log(`Web is running on http://localhost:${serverPort}`),
+    () => logger.log(`
+        ================================================
+                     Ambercat Dev Mode
+        ================================================
+
+        Web is running on http://localhost:${serverPort}
+      `),
   );
 }
 

@@ -8,6 +8,7 @@ const config = reqRoot('config');
 const externals = Object.keys(reqRoot('package.json').dependencies);
 
 module.exports = webpackMerge(defaultConfig, {
+  name: 'server',
   target: 'node',
   devtool: config.server.devtool,
   entry: config.server.entryFile,

@@ -4,6 +4,7 @@ const config = reqRoot('config');
 const webpackMerge = require('webpack-merge');
 
 module.exports = webpackMerge(defaultWebpackConfig, {
+  name: 'client',
   target: 'web',
   devtool: 'source-map',
   entry: config.client.entryFile,
