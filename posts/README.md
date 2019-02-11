@@ -1,6 +1,6 @@
 # Ambercat
 
-Simple static site generator based on Vue.js.
+Simple static site generator based on Vue.js. X
 
 ## How to Install
 

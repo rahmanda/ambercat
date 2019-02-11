@@ -2,7 +2,8 @@ const webpack = require('webpack');
 const formatMessages = require('webpack-format-messages');
 const logger = require('@vue/cli-shared-utils');
 
-function logStats(messages) {
+function logStats(stats) {
+  const messages = formatMessages(stats);
   if (messages.errors.length) {
     logger.error('Failed to compile.');
     messages.errors.forEach(e => logger.error(e));
@@ -17,18 +18,19 @@ function logStats(messages) {
 function assetBuilder(configFile, callback) {
   const compiler = webpack(configFile);
 
-  compiler.hooks.run.tap('start', (stats) => {
-    logger.logWithSpinner(`Compiling ${stats.name}...`);
-  });
-
-  compiler.hooks.done.tap('done', (stats) => {
-    const messages = formatMessages(stats);
-    logger.stopSpinner();
-    logStats(messages);
-    if (callback && !messages.errors.length) callback();
-  });
-
-  compiler.run();
+  if (process.env.NODE_ENV === 'development') {
+    compiler.watch({
+      aggregateTimeout: 300,
+    }, (err, stats) => {
+      const messages = formatMessages(stats);
+      if (!messages.errors.length && callback) callback();
+    });
+  } else {
+    compiler.run((err, stats) => {
+      const messages = formatMessages(stats);
+      if (!messages.errors.length && callback) callback();
+    });
+  }
 
   return compiler;
 }

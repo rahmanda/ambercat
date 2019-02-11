@@ -25,11 +25,15 @@ else if (args[0] === 'build') {
 }
 
 function dev() {
-  server(config.client.buildPath, config.serverPort);
-  build();
+  const browserSync = require('browser-sync').create();
+  browserSync.init({
+    server: path.resolve(config.client.buildPath),
+    port: 3000,
+  });
+  build(() => browserSync.reload());
 }
 
-function build() {
+function build(callback) {
   const webpackConfigs = [
     reqRoot('config/webpack.client.config.js'),
     reqRoot('config/webpack.server.config.js'),
@@ -38,5 +42,6 @@ function build() {
   generateImporter(config.post.importer);
   buildAsset(webpackConfigs, () => {
     compileStatic(config.post.compiler);
+    if (callback) callback();
   });
 }

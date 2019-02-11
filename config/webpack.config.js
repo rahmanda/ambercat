@@ -1,9 +1,14 @@
 const { require: reqRoot, resolve: resRoot } = require('app-root-path');
 const vueloader = require('vue-loader');
 const config = reqRoot('config');
+const WebpackBar = require('webpackbar');
 
 module.exports = {
   mode: process.env.NODE_ENV,
+  watch: process.env.NODE_ENV === 'development',
+  watchOptions: {
+    ignored: /node_modules/
+  },
   module: {
     rules: [
       {
