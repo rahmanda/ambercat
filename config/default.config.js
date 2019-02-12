@@ -5,4 +5,7 @@ module.exports = {
   buildPrefix: 'client.build',
   tmpDir: 'tmp',
   postDirs: ['posts'],
+  configureWebpack(config, isServer) {
+    return {};
+  },
 };

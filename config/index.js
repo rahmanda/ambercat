@@ -30,6 +30,7 @@ module.exports = {
     devtool: false,
     entryFile: resolve(themePath, 'entry-server.js'),
   },
+  configureWebpack: userConfig.configureWebpack,
 };
 
 function importer(userPath, dirs, outputDir = 'tmp') {
@@ -67,6 +68,6 @@ function getUserConfig(defaultConfig, configFilename) {
       defaultConfig,
       require(userConfigFile),
     );
-  
+
   return defaultConfig;
 }

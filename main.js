@@ -34,14 +34,25 @@ function dev() {
 }
 
 function build(callback) {
-  const webpackConfigs = [
-    reqRoot('config/webpack.client.config.js'),
-    reqRoot('config/webpack.server.config.js'),
-  ];
   cleanup(config.client.buildPath);
   generateImporter(config.post.importer);
-  buildAsset(webpackConfigs, () => {
+  buildAsset(
+    buildWebpackConfig(config.configureWebpack),
+    postBuildAsset,
+  );
+
+  function postBuildAsset() {
     compileStatic(config.post.compiler);
     if (callback) callback();
-  });
+  }
+}
+
+function buildWebpackConfig(userCallback) {
+  const webpackMerge = require('webpack-merge');
+  const baseClientConfig = reqRoot('config/webpack.client.config.js');
+  const baseServerConfig = reqRoot('config/webpack.server.config.js');
+  return [
+    webpackMerge(baseClientConfig, userCallback(baseClientConfig, false)),
+    webpackMerge(baseServerConfig, userCallback(baseServerConfig, true)),
+  ];
 }
