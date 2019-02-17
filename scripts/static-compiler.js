@@ -11,10 +11,15 @@ function compileStatic(targets) {
       htmlCompiler.compileDir(target.sourcePath, target.ext, target.outputPath)
     );
   });
-  const extras = ['index', '404'];
-  extras.forEach(extra => {
+  config.staticExtras.forEach(({ filename, title }) => {
+    const context = {
+      url: `/${filename}.html`,
+      data: {
+        title,
+      },
+    };
     processes.push(
-      htmlCompiler.compileFile({ url: `/${extra}.html` }, extra, config.client.buildPath)
+      htmlCompiler.compileFile(context, filename, config.client.buildPath)
     );
   });
   return Promise.all(processes)

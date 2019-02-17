@@ -14,6 +14,10 @@ module.exports = {
   serverPort: userConfig.serverPort,
   publicPath: '/',
   buildClient: userConfig.buildClient,
+  staticExtras: [
+    { filename: 'index', title: userConfig.sitename },
+    { filename: '404', title: '404' },
+  ],
   post: {
     importer: importer(userPath, userConfig.postDirs, userConfig.tmpDir),
     compiler: compiler(userPath, userConfig.postDirs, userConfig.buildDir),

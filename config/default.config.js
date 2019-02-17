@@ -1,4 +1,5 @@
 module.exports = {
+  sitename: 'Ambercat',
   serverPort: 3000,
   themeDir: 'src',
   buildClient: true,
