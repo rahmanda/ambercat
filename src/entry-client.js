@@ -1,6 +1,7 @@
 import { createApp } from './app';
 import posts from '@/tmp/posts';
 import markdownCompiler from './compiler';
+import css from './app.css';
 
 const container = '#app';
 

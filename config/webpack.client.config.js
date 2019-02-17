@@ -4,6 +4,14 @@ const config = reqRoot('config');
 const webpackMerge = require('webpack-merge');
 const WebpackBar = require('webpackbar');
 
+const chunkFilename = process.env.NODE_ENV === 'development' ?
+      `${config.client.chunkPrefix}.js` :
+      `${config.client.chunkPrefix}.[chunkhash].js`;
+
+const filename = process.env.NODE_ENV === 'development' ?
+      `${config.client.buildPrefix}.js` :
+      `${config.client.buildPrefix}.[contenthash].js`;
+
 module.exports = webpackMerge(defaultWebpackConfig, {
   name: 'client',
   target: 'web',
@@ -12,8 +20,8 @@ module.exports = webpackMerge(defaultWebpackConfig, {
   output: {
     path: config.client.buildPath,
     publicPath: config.publicPath,
-    chunkFilename: `${config.client.chunkPrefix}.[chunkhash].js`,
-    filename: `${config.client.buildPrefix}.[contenthash].js`,
+    chunkFilename,
+    filename,
   },
   plugins: [
     new WebpackBar({
