@@ -1,6 +1,6 @@
 import { createApp } from './app';
 import posts from '@/tmp/posts';
-const markdownCompiler = () => import(/* webpackChunkName: "ambercat/lib/markdown-compiler" */ 'ambercat/lib/markdown-compiler');
+import markdownCompiler from './compiler';
 
 const container = '#app';
 

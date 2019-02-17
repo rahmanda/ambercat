@@ -7,7 +7,7 @@
 
 <script>
 import posts from '@/tmp/posts';
-const markdownCompiler = () => import(/* webpackChunkName: "ambercat/lib/markdown-compiler" */ 'ambercat/lib/markdown-compiler');
+import markdownCompiler from '../compiler';
 
 export default {
   props: ['content', 'data'],
