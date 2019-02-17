@@ -13,6 +13,7 @@ module.exports = {
   themePath: resolve(userPath, userConfig.themeDir),
   serverPort: userConfig.serverPort,
   publicPath: '/',
+  buildClient: userConfig.buildClient,
   post: {
     importer: importer(userPath, userConfig.postDirs, userConfig.tmpDir),
     compiler: compiler(userPath, userConfig.postDirs, userConfig.buildDir),

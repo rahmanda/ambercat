@@ -48,11 +48,16 @@ function build(callback) {
 }
 
 function buildWebpackConfig(userCallback) {
+  let webpackConfig = [];
   const webpackMerge = require('webpack-merge');
-  const baseClientConfig = reqRoot('config/webpack.client.config.js');
+
+  if (config.buildClient) {
+    const baseClientConfig = reqRoot('config/webpack.client.config.js');
+    webpackConfig.push(webpackMerge(baseClientConfig, userCallback(baseClientConfig, false)));
+  }
+
   const baseServerConfig = reqRoot('config/webpack.server.config.js');
-  return [
-    webpackMerge(baseClientConfig, userCallback(baseClientConfig, false)),
-    webpackMerge(baseServerConfig, userCallback(baseServerConfig, true)),
-  ];
+  webpackConfig.push(webpackMerge(baseServerConfig, userCallback(baseServerConfig, true)));
+
+  return webpackConfig;
 }
