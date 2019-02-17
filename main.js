@@ -29,6 +29,7 @@ function dev() {
   browserSync.init({
     server: path.resolve(config.client.buildPath),
     port: 3000,
+    open: false,
   });
   build(() => browserSync.reload());
 }
@@ -42,8 +43,10 @@ function build(callback) {
   );
 
   function postBuildAsset() {
-    compileStatic(config.post.compiler);
-    if (callback) callback();
+    compileStatic(config.post.compiler)
+      .then(() => {
+        if (callback) callback();
+      });
   }
 }
 
