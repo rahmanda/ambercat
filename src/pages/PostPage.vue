@@ -1,39 +1,12 @@
 <template>
-  <div>
-    <div v-html="postContent"/>
-    <button type="button" @click="add">{{ count }}</button>
-  </div>
+  <main role="main">
+    <h1>{{ data.title }}</h1>
+    <article v-html="content"/>
+  </main>
 </template>
 
 <script>
-import posts from '@/tmp/posts';
-import markdownCompiler from 'ambercat/lib/markdown-compiler';
-
 export default {
-  props: ['content'],
-  data() {
-    return {
-      count: 0,
-      postContent: this.content,
-    };
-  },
-  mounted() {
-    if (!this.postContent) {
-      const path = this.$route.path.split('/')[1].split('.html')[0];
-      posts[path]()
-        .then(({ default: file }) => {
-          this.postContent = markdownCompiler(file).content;
-
-        })
-        .catch(err => {
-          console.log(err);
-        });
-    }
-  },
-  methods: {
-    add() {
-      this.count += 1;
-    },
-  },
+  props: ['content', 'data'],
 }
 </script>

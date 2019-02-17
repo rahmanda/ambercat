@@ -2,7 +2,7 @@ import Vue from 'vue';
 import App from './App.vue';
 import { createRouter } from './router';
 
-export function createApp({ url, content }) {
+export function createApp({ url, content, data }) {
   const router = createRouter();
 
   const app = new Vue({
@@ -11,6 +11,7 @@ export function createApp({ url, content }) {
       return createElement(App, {
         props: {
           content,
+          data,
           url,
         },
       });

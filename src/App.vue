@@ -1,11 +1,11 @@
 <template>
   <div id="app">
-    <router-view :content="content"/>
+    <router-view :content="content" :data="data"/>
   </div>
 </template>
 
 <script>
 export default {
-  props: ['content'],
+  props: ['content', 'data'],
 }
 </script>
