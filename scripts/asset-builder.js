@@ -17,6 +17,7 @@ function assetBuilder(configFile, callback) {
 
 function assetBuilderCallback(callback) {
   return function webpackCallback(err, stats) {
+    logger.log(stats.toString({ colors: true }));
     const messages = formatMessages(stats);
     if (!messages.errors.length && callback) callback();
   };
