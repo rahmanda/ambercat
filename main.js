@@ -25,13 +25,21 @@ else if (args[0] === 'build') {
 }
 
 function dev() {
-  const browserSync = require('browser-sync').create();
-  browserSync.init({
-    server: path.resolve(config.client.buildPath),
-    port: 3000,
-    open: false,
+  const browserSync = require('browser-sync');
+  const serverName = 'dev';
+
+  build(function autoreload() {
+    if (browserSync.has(serverName)) {
+      const browser = browserSync.get(serverName);
+      browser.reload();
+    } else {
+      const server = browserSync.create(serverName);
+      server.init({
+        server: path.resolve(config.client.buildPath),
+        port: config.serverPort,
+      });
+    }
   });
-  build(() => browserSync.reload());
 }
 
 function build(callback) {
