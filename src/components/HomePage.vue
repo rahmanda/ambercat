@@ -1,25 +1,28 @@
 <template>
   <div id="homepage" class="text-lg text-grey-darkest">
     <div class="bg-indigo h-1"/>
-    <div class="bg-grey-lighter shadow-md">
+    <div class="mb-2">
       <div class="max-w-md mx-auto px-8 py-6">
         <h1 class="text-5xl text-indigo-dark mt-0 mb-6">Ambercat</h1>
-        <p class="mb-0">A stupidly simple static site generator based on Vue.js</p>
+        <p class="text-xl mb-0 font-semibold text-grey-dark">A stupidly simple static site generator based on Vue.js</p>
       </div>
     </div>
     <div class="max-w-md mx-auto px-8 py-6">
       <div v-for="post in data.posts"
-           class="mb-10">
-        <time :datetime="post.date"
-              class="block text-sm mb-2 text-grey-darker">
-          {{ post.date | date }}
-        </time>
+           class="mb-12">
+        <div class="text-sm text-grey-darker">
+          <time :datetime="post.date">
+            {{ post.date | date }}
+          </time>
+          <span class="mx-1">•</span>
+          <span :title="post.readingTime.text">{{ post.readingTime.text }}</span>
+        </div>
         <a :href="post.path"
            class="text-3xl font-semibold">
           {{ post.title }}
         </a>
         <p v-if="post.summary"
-           class="text-base text-grey-darker mt-4">{{ post.summary }}</p>
+           class="text-base text-grey-darker mt-2">{{ post.summary }}</p>
       </div>
     </div>
   </div>

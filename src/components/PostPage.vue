@@ -3,10 +3,13 @@
     <div class="bg-indigo h-1"/>
     <section class="post">
       <h1>{{ postData.title }}</h1>
-      <time class="text-base mb-8 text-grey-dark block"
-            :datetime="postData.date">
-        {{ postData.date | date }}
-      </time>
+      <div class="text-sm mb-8 text-grey-darker">
+        <time :datetime="postData.date">
+          {{ postData.date | date }}
+        </time>
+        <span class="mx-1">•</span>
+        <span :title="postData.readingTime.text">{{ postData.readingTime.text }}</span>
+      </div>
       <article v-html="postContent"/>
       <hr>
     </section>
