@@ -18,3 +18,33 @@ Seperti para programmer pada umumnya, saya juga mengalami masa-masa ‘gonta-gan
 Pada saat itu saya ingin lebih produktif lagi dalam ngoding, namun editor yang saya pakai saat itu (Atom) masih belum cukup cepat menurut saya. Saya menjadi ingin mengeksplorasi kembali text editor yang lain, sampai saya mengenal Emacs. Saat mempelajarinya lebih dalam saya baru menyadari bahwa di dalam text editor yang jadul itu ternyata telah tersemat banyak sekali fitur keren yang tidak dimiliki text editor lain.
 
 _Syntax highlighting_ dan _syntax checker_ untuk banyak bahasa pemograman sudah ada di dalamnya. Navigasi cursor-nya sangat luas, mau ke posisi manapun bisa (asal ingat shortcut-nya). Menjalankan perintah di terminal bisa langsung lewat Emacs. Mau menambahkan plugin tambahan sangat mudah karena sudah ada package manager. Koleksi plugin-nya juga sangat banyak dan beragam, bahkan ada plugin yang bisa kita gunakan untuk browsing, membaca dan membalas email, mengatur keuangan pribadi bahkan bermain game (jadul) dengan Emacs. Ini yang membuat saya tertarik menggunakannya dan saya tidak pernah bosan untuk mengeksplorasi dunia Emacs sampai sekarang.
+
+``` js
+console.log(this === window); // output 'true'
+function callingGlobal() {
+    console.log(this === window);
+}
+callingGlobal(); // output 'true' (?)
+```
+``` html
+<template>
+  <p>Something</p>
+</template>
+
+<script>
+export default {
+  props: ['id'],
+  data() {
+    return {
+      something: 9000,
+    };
+  },
+};
+</script>
+
+<style>
+p {
+  font-size: 12px;
+}
+</style>
+```

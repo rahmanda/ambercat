@@ -44,7 +44,7 @@ export default {
 
 <style lang="scss">
 .post {
-  @apply max-w-md mx-auto leading-normal text-grey-darkest px-8 text-lg pb-10;
+  @apply max-w-md mx-auto leading-normal px-8 text-lg pb-10;
 
   h1 {
     @apply mt-16 mb-8 text-5xl text-indigo-dark leading-tight;
@@ -71,7 +71,11 @@ export default {
   }
 
   p {
-    @apply mb-6;
+    @apply text-grey-darkest mb-6;
+  }
+
+  pre {
+    @apply bg-black text-grey-light p-4 rounded-lg overflow-y-auto text-base mb-6;
   }
 
   a:not(.anchorjs-link) {
