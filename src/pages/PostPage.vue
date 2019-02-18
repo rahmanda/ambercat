@@ -94,6 +94,22 @@ export default {
     @apply text-grey-darkest my-10;
   }
 
+  table {
+    @apply text-grey-darkest my-10 -mx-8;
+
+    th, td {
+      @apply px-8 py-2;
+    }
+
+    th {
+      @apply font-semibold;
+    }
+
+    tr:nth-child(even), thead {
+      @apply bg-grey-lighter;
+    }
+  }
+
   @screen md {
     pre {
       @apply rounded-lg;
