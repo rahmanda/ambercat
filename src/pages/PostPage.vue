@@ -72,7 +72,9 @@ export default {
 
   p {
     @apply text-grey-darkest mb-6;
+  }
 
+  p, ol, ul {
     code {
       @apply text-xs bg-grey-light px-2 py-1 rounded;
     }
@@ -86,6 +88,10 @@ export default {
     pre {
       @apply rounded-none;
     }
+  }
+
+  ol, ul {
+    @apply text-grey-darkest my-10;
   }
 
   @screen md {

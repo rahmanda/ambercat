@@ -17,6 +17,12 @@ Seperti para programmer pada umumnya, saya juga mengalami masa-masa ‘gonta-gan
 
 Pada saat itu saya ingin lebih produktif lagi dalam ngoding, namun editor yang saya pakai saat itu (Atom) masih belum cukup cepat menurut saya. Saya menjadi ingin mengeksplorasi kembali text editor yang lain, sampai saya mengenal Emacs. Saat mempelajarinya lebih dalam saya baru menyadari bahwa di dalam text editor yang jadul itu ternyata telah tersemat banyak sekali fitur keren yang tidak dimiliki text editor lain.
 
+1. Ketuhanan Yang Maha Esa
+2. Kemanusiaan yang adil dan beradab
+3. Persatuan Indonesia
+4. Kerakyatan yang dipimpin oleh hikmat kebijaksanaan dalam permusyawaratan perwakilan
+5. Keadilan `sosial` bagi seluruh rakyat Indonesia
+
 _Syntax highlighting_ dan _syntax checker_ untuk banyak bahasa pemograman sudah ada di dalamnya. Navigasi `npm run ambercat dev`-nya sangat luas, mau ke posisi manapun bisa (asal ingat shortcut-nya). Menjalankan perintah di terminal bisa langsung lewat Emacs. Mau menambahkan plugin tambahan sangat mudah karena sudah ada package manager. Koleksi plugin-nya juga sangat banyak dan beragam, bahkan ada plugin yang bisa kita gunakan untuk browsing, membaca dan membalas email, mengatur keuangan pribadi bahkan bermain game (jadul) dengan Emacs. Ini yang membuat saya tertarik menggunakannya dan saya tidak pernah bosan untuk mengeksplorasi dunia Emacs sampai sekarang.
 
 ``` html
