@@ -1,3 +1,5 @@
+const { require: reqRoot } = require('app-root-path');
+const config = reqRoot('config');
 const buildAsset = require('./asset-builder');
 const buildWebpackConfig = require('./webpack-config');
 const cleanup = require('./cleanup');
@@ -6,7 +8,7 @@ const generateImporter = require('./importer-generator');
 
 function build(callback) {
   cleanup();
-  generateImporter();
+  if (config.ssr) generateImporter();
   buildAsset(
     buildWebpackConfig(),
     postBuildAsset,

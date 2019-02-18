@@ -1,6 +1,5 @@
 ---
 title: Kok Kamu Pakai Emacs Sih?
-date: 2016-09-11
 ---
 
 Keperluan terhadap text editor bagi seorang programmer adalah mutlak. Tanpa text editor, programmer tidak dapat ngoding. Oleh karena itu, banyak sekali text editor yang beredar di dunia ini, dan sepertinya para programmer tidak akan berhenti mencari dan menciptakan text editor yang lebih baik dari yang sudah ada saat ini.

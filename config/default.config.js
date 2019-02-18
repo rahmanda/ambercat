@@ -2,11 +2,12 @@ module.exports = {
   sitename: 'Ambercat',
   serverPort: 3000,
   themeDir: 'src',
-  buildClient: true,
+  ssr: false,
   buildDir: 'build',
   buildPrefix: 'client.build',
   tmpDir: 'tmp',
-  postDirs: ['posts'],
+  postDir: 'posts',
+  numOfRecentPosts: 5,
   configureWebpack(config, isServer) {
     const MiniCssExtractPlugin = require('mini-css-extract-plugin');
     const tailwindConfig = require('./tailwind.js');

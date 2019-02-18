@@ -14,15 +14,18 @@ module.exports = {
   serverPort: userConfig.serverPort,
   serverName: 'dev',
   publicPath: '/',
-  buildClient: userConfig.buildClient,
+  ssr: userConfig.ssr,
   staticExtras: [
     { filename: 'index', title: userConfig.sitename },
     { filename: '404', title: '404' },
   ],
-  post: {
-    importer: importer(userPath, userConfig.postDirs, userConfig.tmpDir),
-    compiler: compiler(userPath, userConfig.postDirs, userConfig.buildDir),
-  },
+  postDir: userConfig.postDir,
+  postPath: resolve(userPath, userConfig.postDir),
+  postExt: 'md',
+  tmpDir: userConfig.tmpDir,
+  tmpPath: resolve(userPath, userConfig.tmpDir),
+  buildPath: resolve(userPath, userConfig.buildDir),
+  numOfRecentPosts: userConfig.numOfRecentPosts,
   client: {
     buildPath: resolve(userPath, userConfig.buildDir),
     buildPrefix: userConfig.buildPrefix,
@@ -38,31 +41,6 @@ module.exports = {
   },
   configureWebpack: userConfig.configureWebpack,
 };
-
-function importer(userPath, dirs, outputDir = 'tmp') {
-  return dirs.map(dir => {
-    const sourcePath = resolve(userPath, dir);
-    const outputFile = resolve(userPath, `${outputDir}/${dir}.js`);
-    return {
-      sourcePath,
-      dir,
-      outputFile,
-      ext: 'md',
-    };
-  });
-}
-
-function compiler(userPath, dirs, outputDir = 'build') {
-  return dirs.map(dir => {
-    const sourcePath = resolve(userPath, dir);
-    const outputPath = resolve(userPath, outputDir);
-    return {
-      sourcePath,
-      outputPath,
-      ext: 'md',
-    };
-  });
-}
 
 function getUserConfig(defaultConfig, configFilename) {
   const userConfigFile = resolve(userPath, configFilename);

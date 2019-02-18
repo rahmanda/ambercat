@@ -3,6 +3,13 @@
     <div class="max-w-lg mx-auto px-8">
       <h1 class="text-5xl text-indigo-dark mb-6">Ambercat</h1>
       <p class="mb-6">A stupidly simple static site generator based on Vue.js</p>
+      <div>{{ data.posts }}</div>
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  props: ['data'],
+};
+</script>
