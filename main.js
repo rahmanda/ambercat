@@ -10,7 +10,6 @@ const buildAsset = reqRoot('scripts/asset-builder');
 const cleanup = reqRoot('scripts/cleanup');
 const compileStatic = reqRoot('scripts/static-compiler');
 const generateImporter = reqRoot('scripts/importer-generator');
-const server = reqRoot('scripts/server');
 
 const [, , ...args] = process.argv;
 
