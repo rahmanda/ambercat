@@ -1,9 +1,17 @@
 import { createApp } from './app';
 import posts from '@/tmp/posts';
-import markdownCompiler from './compiler';
+import { markdownCompiler, anchorjs } from './vendor';
 import css from './app.css';
 
 const container = '#app';
+
+function generateAnchors() {
+  anchorjs().then(({ default: lib }) => {
+    const anchors = new lib();
+    const tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+    tags.forEach(tag => anchors.add(tag));
+  });
+}
 
 function fetchPost(container, render) {
   const { pathname } = window.location;
@@ -19,6 +27,7 @@ function fetchPost(container, render) {
           .then(({ default: compiler }) => {
             const { app } = render(compiler(file));
             app.$mount(container);
+            generateAnchors();
           });
       })
       .catch(err => {

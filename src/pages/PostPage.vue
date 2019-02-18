@@ -12,7 +12,7 @@
 
 <script>
 import posts from '@/tmp/posts';
-import markdownCompiler from '../compiler';
+import { markdownCompiler } from '../vendor';
 
 export default {
   props: ['content', 'data'],
@@ -74,10 +74,14 @@ export default {
     @apply mb-6;
   }
 
-  a {
+  a:not(.anchorjs-link) {
     @apply font-semibold text-black relative no-underline;
     background-image: -webkit-gradient(linear,left top,left bottom,color-stop(70%,transparent),color-stop(70%,rgba(101,125,225,.4)));
     background-image: linear-gradient(180deg,transparent 70%,rgba(101,125,225,.4) 0);
+  }
+
+  .anchorjs-link {
+    @apply text-indigo;
   }
 }
 </style>
