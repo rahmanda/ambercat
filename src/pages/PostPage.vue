@@ -75,7 +75,19 @@ export default {
   }
 
   pre {
-    @apply bg-black text-grey-light p-4 rounded-lg overflow-y-auto text-base mb-6;
+    @apply bg-black text-grey-light px-8 py-4 overflow-y-auto text-sm my-10 -mx-8;
+  }
+
+  @screen sm {
+    pre {
+      @apply rounded-none;
+    }
+  }
+
+  @screen md {
+    pre {
+      @apply rounded-lg;
+    }
   }
 
   a:not(.anchorjs-link) {

@@ -19,27 +19,17 @@ Pada saat itu saya ingin lebih produktif lagi dalam ngoding, namun editor yang s
 
 _Syntax highlighting_ dan _syntax checker_ untuk banyak bahasa pemograman sudah ada di dalamnya. Navigasi cursor-nya sangat luas, mau ke posisi manapun bisa (asal ingat shortcut-nya). Menjalankan perintah di terminal bisa langsung lewat Emacs. Mau menambahkan plugin tambahan sangat mudah karena sudah ada package manager. Koleksi plugin-nya juga sangat banyak dan beragam, bahkan ada plugin yang bisa kita gunakan untuk browsing, membaca dan membalas email, mengatur keuangan pribadi bahkan bermain game (jadul) dengan Emacs. Ini yang membuat saya tertarik menggunakannya dan saya tidak pernah bosan untuk mengeksplorasi dunia Emacs sampai sekarang.
 
-``` js
-console.log(this === window); // output 'true'
-function callingGlobal() {
-    console.log(this === window);
-}
-callingGlobal(); // output 'true' (?)
-```
 ``` html
 <template>
   <p>Something</p>
 </template>
 
 <script>
-export default {
-  props: ['id'],
-  data() {
-    return {
-      something: 9000,
-    };
-  },
-};
+console.log(this === window); // output 'true'
+function callingGlobal() {
+    console.log(this === window);
+}
+callingGlobal(); // output 'true' (?)
 </script>
 
 <style>
