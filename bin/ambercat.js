@@ -6,8 +6,6 @@ const { require: reqRoot, setPath, resolve: resRoot } = require('app-root-path')
 
 setPath(path.resolve(__dirname, '..'));
 
-console.log('command root path:', resRoot('.'));
-
 const { version, description } = reqRoot('package.json');
 
 program

@@ -1,15 +1,13 @@
 const path = require('path');
-const { resolve: resRoot } = require('app-root-path');
+const { resolve: resRoot, setPath } = require('app-root-path');
 const program = require('commander');
 const fsExtra = require('fs-extra');
+
+setPath(path.resolve(__dirname, '..'));
 
 program.parse(process.argv);
 
 const targetDir = program.args[0];
-
-console.log('command root path:', resRoot('.'));
-console.log('source path:', resRoot('src'));
-console.log('target path:', path.join(targetDir, 'src/'));
 
 function ejectFiles(targetDir) {
   fsExtra.copySync(resRoot('src'), path.join(targetDir, 'src/'));
@@ -19,5 +17,5 @@ function ejectFiles(targetDir) {
 if (targetDir) {
   ejectFiles(targetDir);
 } else {
-  ejectFiles(process.cwd);
+  ejectFiles(process.cwd());
 }

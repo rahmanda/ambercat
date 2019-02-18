@@ -8,7 +8,8 @@ module.exports = {
   tmpDir: 'tmp',
   postDir: 'src/posts',
   numOfRecentPosts: 5,
-  configureWebpack(config, isServer) {
-    return {};
-  },
+  // TODO: what todo with tailwind.js if user define something here
+  // configureWebpack(config, isServer) {
+  //   return {};
+  // },
 };
