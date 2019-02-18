@@ -5,11 +5,12 @@ const { require: reqRoot, setPath } = require('app-root-path');
 
 setPath(path.resolve(__dirname));
 
-const config = reqRoot('config');
 const buildAsset = reqRoot('scripts/asset-builder');
+const buildWebpackConfig = reqRoot('scripts/webpack-config');
 const cleanup = reqRoot('scripts/cleanup');
 const compileStatic = reqRoot('scripts/static-compiler');
 const generateImporter = reqRoot('scripts/importer-generator');
+const server = reqRoot('scripts/server');
 
 const [, , ...args] = process.argv;
 
@@ -24,50 +25,21 @@ else if (args[0] === 'build') {
 }
 
 function dev() {
-  const browserSync = require('browser-sync');
-  const serverName = 'dev';
-
-  build(function autoreload() {
-    if (browserSync.has(serverName)) {
-      const browser = browserSync.get(serverName);
-      browser.reload();
-    } else {
-      const server = browserSync.create(serverName);
-      server.init({
-        server: path.resolve(config.client.buildPath),
-        port: config.serverPort,
-      });
-    }
-  });
+  build(server);
 }
 
 function build(callback) {
-  cleanup(config.client.buildPath);
-  generateImporter(config.post.importer);
+  cleanup();
+  generateImporter();
   buildAsset(
-    buildWebpackConfig(config.configureWebpack),
+    buildWebpackConfig(),
     postBuildAsset,
   );
 
   function postBuildAsset() {
-    compileStatic(config.post.compiler)
+    compileStatic()
       .then(() => {
         if (callback) callback();
       });
   }
-}
-
-function buildWebpackConfig(userCallback) {
-  let webpackConfig = [];
-  const webpackMerge = require('webpack-merge');
-
-  if (config.buildClient) {
-    const baseClientConfig = reqRoot('config/webpack.client.config.js');
-    webpackConfig.push(webpackMerge(baseClientConfig, userCallback(baseClientConfig, false)));
-  }
-
-  const baseServerConfig = reqRoot('config/webpack.server.config.js');
-  webpackConfig.push(webpackMerge(baseServerConfig, userCallback(baseServerConfig, true)));
-
-  return webpackConfig;
 }

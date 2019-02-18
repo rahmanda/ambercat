@@ -12,6 +12,7 @@ module.exports = {
   templatePath: resolve(themePath, 'template.html'),
   themePath: resolve(userPath, userConfig.themeDir),
   serverPort: userConfig.serverPort,
+  serverName: 'dev',
   publicPath: '/',
   buildClient: userConfig.buildClient,
   staticExtras: [

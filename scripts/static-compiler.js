@@ -3,10 +3,10 @@ const config = reqRoot('config');
 const htmlCompiler = reqRoot('lib/html-compiler');
 const logger = require('@vue/cli-shared-utils');
 
-function compileStatic(targets) {
+function compileStatic() {
   logger.logWithSpinner('Compiling static files...');
   let processes = [];
-  targets.forEach(target => {
+  config.post.compiler.forEach(target => {
     processes.push(
       htmlCompiler.compileDir(target.sourcePath, target.ext, target.outputPath)
     );
