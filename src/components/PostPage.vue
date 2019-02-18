@@ -1,12 +1,15 @@
 <template>
-  <main role="main" class="post">
-    <h1>{{ postData.title }}</h1>
-    <time class="text-base mb-8 text-grey-dark block"
-          :datetime="postData.date">
-      29 Februari 2016
-    </time>
-    <article v-html="postContent"/>
-    <hr>
+  <main role="main">
+    <div class="bg-indigo h-1"/>
+    <section class="post">
+      <h1>{{ postData.title }}</h1>
+      <time class="text-base mb-8 text-grey-dark block"
+            :datetime="postData.date">
+        {{ postData.date | date }}
+      </time>
+      <article v-html="postContent"/>
+      <hr>
+    </section>
   </main>
 </template>
 
