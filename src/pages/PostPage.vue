@@ -72,6 +72,10 @@ export default {
 
   p {
     @apply text-grey-darkest mb-6;
+
+    code {
+      @apply text-xs bg-grey-light px-2 py-1 rounded;
+    }
   }
 
   pre {
