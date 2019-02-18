@@ -6,7 +6,7 @@ module.exports = {
   buildDir: 'build',
   buildPrefix: 'client.build',
   tmpDir: 'tmp',
-  postDir: 'posts',
+  postDir: 'src/posts',
   numOfRecentPosts: 5,
   configureWebpack(config, isServer) {
     const MiniCssExtractPlugin = require('mini-css-extract-plugin');

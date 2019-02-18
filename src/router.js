@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import HomePage from './pages/HomePage.vue';
-import PostPage from './pages/PostPage.vue';
-import FourOhFourPage from './pages/FourOhFourPage.vue';
+import HomePage from './components/HomePage.vue';
+import PostPage from './components/PostPage.vue';
+import FourOhFourPage from './components/FourOhFourPage.vue';
 
 Vue.use(Router);
 
