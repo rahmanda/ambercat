@@ -13,6 +13,7 @@ function server() {
     server.init({
       server: path.resolve(config.client.buildPath),
       port: config.serverPort,
+      open: false,
     });
   }
 }
