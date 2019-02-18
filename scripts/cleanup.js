@@ -6,6 +6,7 @@ const config = reqRoot('config');
 function cleanup() {
   logger.logWithSpinner('Cleaning up output directory...');
   rimraf.sync(config.client.buildPath);
+  rimraf.sync(config.server.buildPath);
   logger.stopSpinner();
 }
 
