@@ -17,7 +17,6 @@
 </template>
 
 <script>
-// import posts from '@/tmp/posts';
 import { markdownCompiler } from '../vendor';
 
 export default {
@@ -28,22 +27,5 @@ export default {
       postData: this.data,
     };
   },
-  // mounted() {
-  //   if (!this.postContent && !this.postData) {
-  //     const path = this.$route.path.split('/')[1].split('.html')[0];
-  //     posts[path]()
-  //       .then(({ default: file }) => {
-  //         markdownCompiler()
-  //           .then(({ default: compiler }) => {
-  //             const { content, data } = compiler(file);
-  //             this.postContent = content;
-  //             this.postData = data;
-  //           })
-  //       })
-  //       .catch(err => {
-  //         console.log(err);
-  //       });
-  //   }
-  // },
 }
 </script>

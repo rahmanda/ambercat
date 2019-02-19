@@ -1,7 +1,6 @@
 module.exports = {
   serverPort: 3000,
   themeDir: 'src',
-  ssr: false,
   buildDir: 'build',
   buildPrefix: 'client.build',
   tmpDir: 'tmp',
