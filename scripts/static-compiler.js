@@ -11,7 +11,7 @@ function compileStatic() {
     htmlCompiler.compileDir(config.postPath, config.postExt, config.buildPath)
   );
   const recentPosts = getRecentPosts(config.postPath, config.postExt, config.numOfRecentPosts);
-  config.staticExtras.forEach(({ filename, title }) => {
+  config.staticPages.forEach(({ filename, title }) => {
     const context = {
       url: `/${filename}.html`,
       data: {

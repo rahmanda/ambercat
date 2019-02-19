@@ -15,10 +15,7 @@ module.exports = {
   serverName: 'dev',
   publicPath: '/',
   ssr: userConfig.ssr,
-  staticExtras: [
-    { filename: 'index', title: userConfig.sitename },
-    { filename: '404', title: '404' },
-  ],
+  staticPages: userConfig.staticPages,
   postDir: userConfig.postDir,
   postPath: resolve(userPath, userConfig.postDir),
   postExt: 'md',

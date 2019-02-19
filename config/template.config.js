@@ -1,5 +1,4 @@
 module.exports = {
-  sitename: 'Ambercat',
   serverPort: 3000,
   themeDir: 'src',
   ssr: false,
@@ -8,8 +7,8 @@ module.exports = {
   tmpDir: 'tmp',
   postDir: 'src/posts',
   numOfRecentPosts: 5,
-  // TODO: what todo with tailwind.js if user define something here
-  // configureWebpack(config, isServer) {
-  //   return {};
-  // },
+  staticPages: [
+    { filename: 'index', title: 'Ambercat' },
+    { filename: '404', title: '404' },
+  ],
 };
