@@ -23,6 +23,7 @@ module.exports = {
   tmpPath: resolve(userPath, userConfig.tmpDir),
   buildPath: resolve(userPath, userConfig.buildDir),
   numOfRecentPosts: userConfig.numOfRecentPosts,
+  tailwindConfig: resolve(userPath, userConfig.tailwindConfig),
   client: {
     buildPath: resolve(userPath, userConfig.buildDir),
     buildPrefix: userConfig.buildPrefix,

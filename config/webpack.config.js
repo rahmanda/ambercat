@@ -1,7 +1,13 @@
 const { require: reqRoot, resolve: resRoot } = require('app-root-path');
-const vueloader = require('vue-loader');
 const config = reqRoot('config');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const precss = require('precss');
+const vueloader = require('vue-loader');
 const WebpackBar = require('webpackbar');
+
+const cssFilename = process.env.NODE_ENV === 'development' ?
+      `${config.client.buildPrefix}.css` :
+      `${config.client.buildPrefix}.[hash].css`;
 
 module.exports = {
   mode: process.env.NODE_ENV,
@@ -11,6 +17,23 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        test: /\.scss$|\.css$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              sourceMap: false,
+              plugins: [
+                require('tailwindcss')(config.tailwindConfig),
+                precss(),
+              ],
+            },
+          },
+        ],
+      },
       {
         test: /\.js$/,
         exclude: /node_modules/,
@@ -48,5 +71,8 @@ module.exports = {
   },
   plugins: [
     new vueloader.VueLoaderPlugin(),
+    new MiniCssExtractPlugin({
+      filename: cssFilename,
+    }),
   ],
 };
