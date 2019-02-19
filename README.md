@@ -32,7 +32,7 @@ npx ambercat dev
 
 The homepage will be accessible on `http://localhost:3000`.
 
-## Adding Posts
+## Add a Post
 
 To add a post, run:
 
@@ -84,7 +84,33 @@ The `PostPage.vue` component will accept `content` HTML text and `data` object. 
 
 ### Add a new static page
 
-Create your custom static page component on `src/components` directory, then edit `src/routes.js`. On your `ambercat.config.js`, register new static pages by adding it into `staticPages` property.
+Create your custom static page component on `src/components` directory, then edit `src/router.js`.
+
+``` js
+// src/router.js
+...
+  routes: [
+    {
+      path: '/',
+      component: Homepage,
+    },
+    {
+      path: '/index.html',
+      component: Homepage,
+    },
+    {
+      path: '/404.html',
+      component: FourOhFourPage,
+    },
+    {
+      path: '/your-custom-static-page.html', // .html extension is important
+      component: YourCustomStaticPage,
+    },
+  ],
+...
+```
+
+On your `ambercat.config.js`, register new static pages by adding it into `staticPages` property.
 
 ``` js
 // ambercat.config.js
@@ -104,7 +130,7 @@ The `title` values will be used to set title page. The `filename` should be matc
 
 ### Customize tailwind.js
 
-The default configurations from the original `tailwind init` have mostly been edited following to the default theme design. However, the edited values are left commented out so you can easily enable them. Refer to https://tailwindcss.com/docs/configuration for further guideline.
+The default configurations from the original `tailwind init` have mostly been edited following to the default theme design. However, the edited values are left commented so you can easily enable them later. Refer to https://tailwindcss.com/docs/configuration for further guideline.
 
 ## Configuration
 
