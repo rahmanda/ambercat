@@ -19,10 +19,6 @@ export function createRouter() {
         component: HomePage,
       },
       {
-        path: '/404',
-        component: FourOhFourPage,
-      },
-      {
         path: '/404.html',
         component: FourOhFourPage,
       },
