@@ -114,6 +114,8 @@ All of project configurations are stored in `ambercat.config.js` file and should
 
 You can add your webpack config by using `configureWebpack` hook. The returned object will be merged with internal webpack configuration. Use `isServer` flag to avoid misconfiguration.
 
+This hook should always return an object if you decide to use it. If you don't need to add anything, simply exclude it from your configuration.
+
 ### Asset Injector
 
 Sometimes you want to add extra scripts like analytics or css tags on template. However, it is forbidden to add it via Vue.js component. By its nature, Vue.js will reject tags with side-effects like `<script>` and `<link>`. By using `assetInjector` hook, you can add your extras without messing with Vue.js compilation process. Below are parameters which `assetInjector` accepts.
@@ -123,4 +125,4 @@ Sometimes you want to add extra scripts like analytics or css tags on template. 
 | assetType | `String` | Determine asset type ('css' or 'js') |
 | pageType | `String` | Determine page type ('page' for regular static page, and 'post' for article page) |
 
-If you don't need to add anything, please keep this function to return an empty string to avoid fail compilation.
+This hook should always return a string if you decide to use it. If you don't need to add anything, simply exclude it from your configuration.
