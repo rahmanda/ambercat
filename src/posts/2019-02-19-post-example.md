@@ -1,5 +1,6 @@
 ---
 title: Post Example
+summary: This page is dedicated to preview all of supported markdown syntax
 ---
 
 ## h2 Heading

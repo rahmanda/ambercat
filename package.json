@@ -1,7 +1,7 @@
 {
   "name": "ambercat",
   "version": "0.1.0-alpha.1",
-  "description": "Stupidly simple static site generator based on Vue.js",
+  "description": "Stupidly simple static site generator based on Vue.js and Tailwind CSS",
   "bin": "./bin/ambercat.js",
   "scripts": {
     "lint": "eslint './src/**/*.{js,vue}' --fix ; exit 0",
