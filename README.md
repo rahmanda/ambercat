@@ -82,7 +82,7 @@ The `PostPage.vue` component will accept `content` HTML text and `data` object. 
 | newerPost | `Object` | `{ title, summary, date, path, readingTime }` |
 | olderPost | `Object` | `{ title, summary, date, path, readingTime }` |
 
-### Adding new static pages
+### Add a new static page
 
 Create your custom static page component on `src/components` directory, then edit `src/routes.js`. On your `ambercat.config.js`, register new static pages by adding it into `staticPages` property.
 
@@ -108,4 +108,19 @@ The default configurations from the original `tailwind init` have mostly been ed
 
 ## Configuration
 
-All of project configurations are stored in `ambercat.config.js` file.
+All of project configurations are stored in `ambercat.config.js` file and should be self explanatory. Below are descriptions for advanced usage.
+
+### Webpack
+
+You can add your webpack config by using `configureWebpack` hook. The returned object will be merged with internal webpack configuration. Use `isServer` flag to avoid misconfiguration.
+
+### Asset Injector
+
+Sometimes you want to add extra scripts like analytics or css tags on template. However, it is forbidden to add it via Vue.js component. By its nature, Vue.js will reject tags with side-effects like `<script>` and `<link>`. By using `assetInjector` hook, you can add your extras without messing with Vue.js compilation process. Below are parameters which `assetInjector` accepts.
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| assetType | `String` | Determine asset type ('css' or 'js') |
+| pageType | `String` | Determine page type ('page' for regular static page, and 'post' for article page) |
+
+If you don't need to add anything, please keep this function to return an empty string to avoid fail compilation.
