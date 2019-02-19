@@ -61,8 +61,6 @@ All of UI code are stored inside of `src` directory. Pay attention that there ar
 1. `entry-client.js`. This file will be used to build js file to be served along with your static site.
 2. `entry-server.js`. This file will be used to generate the static site. In most cases, you don't need to work with this file.
 
-Those two files can be used as a pair for SSR kind of mechanism. However, SSR is not recommended because it is way too overkill for a mere static blog project.
-
 ### HomePage
 
 The `HomePage.vue` component will accept `data` object. The `data.posts` contains an array of the most recent posts with these properties:
