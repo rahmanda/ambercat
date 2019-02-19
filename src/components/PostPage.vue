@@ -1,8 +1,11 @@
 <template>
   <main role="main">
-    <div class="bg-indigo h-1"/>
     <section class="post">
       <h1>{{ postData.title }}</h1>
+      <p v-if="postData.summary"
+         class="text-xl font-semibold text-grey-dark">
+        {{ postData.summary }}
+      </p>
       <div class="text-sm mb-8 text-grey-darker">
         <time :datetime="postData.date">
           {{ postData.date | date }}
@@ -11,7 +14,6 @@
         <span :title="postData.readingTime.text">{{ postData.readingTime.text }}</span>
       </div>
       <article v-html="postContent"/>
-      <hr>
     </section>
   </main>
 </template>

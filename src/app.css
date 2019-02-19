@@ -85,11 +85,11 @@
 }
 
 html {
-  @apply leading-normal text-lg pb-10 font-sans;
+  @apply leading-normal text-lg font-sans;
 }
 
 .post {
-  @apply max-w-md mx-auto px-8;
+  @apply max-w-md mx-auto px-8 pb-8;
 }
 
 h1 {
