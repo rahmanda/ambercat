@@ -14,4 +14,5 @@ program
   .command('init [directory]', 'init project, default to current directory')
   .command('dev', 'start development environment')
   .command('build', 'build production-ready assets')
+  .command('post [title]', 'create post')
   .parse(process.argv);
