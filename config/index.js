@@ -15,6 +15,8 @@ module.exports = {
   serverName: 'dev',
   publicPath: '/',
   ssr: userConfig.ssr,
+  staticFilesDir: userConfig.staticFilesDir,
+  staticFilesPath: resolve(userPath, userConfig.staticFilesDir),
   staticPages: userConfig.staticPages,
   postDir: userConfig.postDir,
   postPath: resolve(userPath, userConfig.postDir),

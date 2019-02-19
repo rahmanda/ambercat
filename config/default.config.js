@@ -8,6 +8,7 @@ module.exports = {
   postDir: 'src/posts',
   numOfRecentPosts: 5,
   tailwindConfig: 'src/tailwind.js',
+  staticFilesDir: 'public',
   staticPages: [
     { filename: 'index', title: 'Ambercat' },
     { filename: '404', title: '404' },
