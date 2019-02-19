@@ -1,6 +1,6 @@
 # Ambercat
 
-Stupidly simple static site generator based on Vue.js and Tailwind CSS.
+Stupidly simple static site generator based on Vue.js and Tailwind CSS ([Demo here](https://ambercat.rahmanda.net)).
 
 ## How to Install
 
