@@ -38,6 +38,7 @@ module.exports = {
     devtool: false,
     entryFile: resolve(themePath, 'entry-server.js'),
   },
+  assetInjector: userConfig.assetInjector,
   configureWebpack: userConfig.configureWebpack,
 };
 
