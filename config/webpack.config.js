@@ -5,10 +5,6 @@ const precss = require('precss');
 const vueloader = require('vue-loader');
 const WebpackBar = require('webpackbar');
 
-const cssFilename = process.env.NODE_ENV === 'development' ?
-      `${config.client.buildPrefix}.css` :
-      `${config.client.buildPrefix}.[hash].css`;
-
 module.exports = {
   mode: process.env.NODE_ENV,
   watch: process.env.NODE_ENV === 'development',
@@ -72,7 +68,7 @@ module.exports = {
   plugins: [
     new vueloader.VueLoaderPlugin(),
     new MiniCssExtractPlugin({
-      filename: cssFilename,
+      filename: config.cssFilename,
     }),
   ],
 };

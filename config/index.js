@@ -6,6 +6,8 @@ const defaultUserConfig = require('./default.config.js');
 const userPath = resolve(process.cwd());
 const userConfig = getUserConfig(defaultUserConfig, 'ambercat.config.js');
 const themePath = resolve(userPath, userConfig.themeDir);
+const tmpPath = resolve(userPath, userConfig.tmpDir);
+const devMode = process.env.NODE_ENV === 'development';
 
 module.exports = {
   userPath,
@@ -20,24 +22,25 @@ module.exports = {
   postDir: userConfig.postDir,
   postPath: resolve(userPath, userConfig.postDir),
   postExt: 'md',
+  tmpPath,
   tmpDir: userConfig.tmpDir,
-  tmpPath: resolve(userPath, userConfig.tmpDir),
-  buildPath: resolve(userPath, userConfig.buildDir),
   numOfRecentPosts: userConfig.numOfRecentPosts,
   tailwindConfig: resolve(userPath, userConfig.tailwindConfig),
   client: {
-    buildPath: resolve(userPath, userConfig.buildDir),
     buildPrefix: userConfig.buildPrefix,
-    chunkPrefix: '[name].chunk',
+    buildPath: devMode ? tmpPath : resolve(userPath, userConfig.buildDir),
+    filename: devMode ? `${userConfig.buildPrefix}.js` : `${userConfig.buildPrefix}.[contenthash].js`,
+    chunkFilename: devMode ? '[name].chunk.js' : '[name].chunk.[chunkhash].js',
     devtool: 'source-map',
     entryFile: resolve(themePath, 'entry-client.js'),
   },
   server: {
-    buildPath: resolve(userPath, userConfig.tmpDir),
+    buildPath: tmpPath,
     buildPrefix: 'server.build',
     devtool: false,
     entryFile: resolve(themePath, 'entry-server.js'),
   },
+  cssFilename: devMode ? `${userConfig.buildPrefix}.css` : `${userConfig.buildPrefix}.[hash].css`,
   assetInjector: userConfig.assetInjector,
   configureWebpack: userConfig.configureWebpack,
 };

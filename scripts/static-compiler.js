@@ -8,7 +8,7 @@ function compileStatic() {
   logger.logWithSpinner('Compiling static files...');
   let processes = [];
   processes.push(
-    htmlCompiler.compileDir(config.postPath, config.postExt, config.buildPath, 'post')
+    htmlCompiler.compileDir(config.postPath, config.postExt, config.client.buildPath, 'post')
   );
   const recentPosts = getRecentPosts(config.postPath, config.postExt, config.numOfRecentPosts);
   config.staticPages.forEach(({ filename, title }) => {
@@ -20,7 +20,7 @@ function compileStatic() {
       },
     };
     processes.push(
-      htmlCompiler.compileFile(context, filename, config.buildPath, 'page')
+      htmlCompiler.compileFile(context, filename, config.client.buildPath, 'page')
     );
   });
   return Promise.all(processes)
