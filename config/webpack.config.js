@@ -1,7 +1,6 @@
 const { require: reqRoot, resolve: resRoot } = require('app-root-path');
 const config = reqRoot('config');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const precss = require('precss');
 const vueloader = require('vue-loader');
 const WebpackBar = require('webpackbar');
 
@@ -24,7 +23,7 @@ module.exports = {
               sourceMap: false,
               plugins: [
                 require('tailwindcss')(config.tailwindConfig),
-                precss(),
+                require('postcss-nested'),
               ],
             },
           },
