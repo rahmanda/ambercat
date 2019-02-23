@@ -41,7 +41,6 @@ module.exports = {
     entryFile: resolve(themePath, 'entry-server.js'),
   },
   cssFilename: devMode ? `${userConfig.buildPrefix}.css` : `${userConfig.buildPrefix}.[hash].css`,
-  assetInjector: userConfig.assetInjector,
   configureWebpack: userConfig.configureWebpack,
 };
 

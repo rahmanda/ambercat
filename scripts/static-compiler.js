@@ -10,11 +10,12 @@ function compileStatic() {
   processes.push(
     compilePosts(config.postPath, config.client.buildPath)
   );
-  config.staticPages.forEach(({ filename, title }) => {
+  config.staticPages.forEach(({ filename, title, description }) => {
     const context = {
       url: `/${filename}.html`,
       data: {
         title,
+        description,
       },
     };
     if (filename === 'index') {
