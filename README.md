@@ -63,24 +63,40 @@ All of UI code are stored inside of `src` directory. Pay attention that there ar
 
 ### HomePage
 
-The `HomePage.vue` component will accept `data` object. The `data.posts` contains an array of the most recent posts with these properties:
+The `HomePage.vue` component will accept `data` object with properties below:
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| title | `String` | Title of the post |
-| summary | `String` | Summary of the post. Can be empty |
-| date | `String` | Date of the post |
-| path | `String` | Path to the post |
-| readingTime | `Object` | Reading time estimation. The values are `{ String: text, Int: minutes, Int: time, Int: words }` |
+| url | `String` | Url of homepage |
+| data | `Object { posts[], title }` | Contains array of posts and title of homepage |
+
+The `data.posts` contains an array of the most recent posts with these properties:
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| url | `String` | Url of the post |
+| content | `String` | Content HTML of the post |
+| data.title | `String` | Title of the post |
+| data.summary | `String` | Summary of the post. Can be empty |
+| data.date | `String` | Date of the post |
+| data.path | `String` | Path to the post |
+| data.readingTime | `Object` | Reading time estimation. The values are `{ String: text, Int: minutes, Int: time, Int: words }` |
 
 ### PostPage
 
-The `PostPage.vue` component will accept `content` HTML text and `data` object. The `data` object contains exactly the same properties as the `data.posts` on `HomePage.vue` description with additional properties:
+The `PostPage.vue` component will accept these properties:
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| newerPost | `Object` | `{ title, summary, date, path, readingTime }` |
-| olderPost | `Object` | `{ title, summary, date, path, readingTime }` |
+| url | `String` | Url of the post |
+| content | `String` | Content HTML of the post |
+| data.title | `String` | Title of the post |
+| data.summary | `String` | Summary of the post. Can be empty |
+| data.date | `String` | Date of the post |
+| data.path | `String` | Path to the post |
+| data.readingTime | `Object` | Reading time estimation. The values are `{ String: text, Int: minutes, Int: time, Int: words }` |
+| data.newerPost | `Object` | `{ title, summary, date, path, readingTime }` |
+| data.olderPost | `Object` | `{ title, summary, date, path, readingTime }` |
 
 ### Add a new static page
 
