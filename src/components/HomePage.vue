@@ -8,18 +8,18 @@
       <div v-for="post in data.posts"
            class="mb-12">
         <div class="text-sm text-grey-darker">
-          <time :datetime="post.date">
-            {{ post.date | date }}
+          <time :datetime="post.data.date">
+            {{ post.data.date | date }}
           </time>
           <span class="mx-1">•</span>
-          <span :title="post.readingTime.text">{{ post.readingTime.text }}</span>
+          <span :title="post.data.readingTime.text">{{ post.data.readingTime.text }}</span>
         </div>
-        <a :href="post.path"
+        <a :href="post.data.path"
            class="text-3xl font-semibold">
-          {{ post.title }}
+          {{ post.data.title }}
         </a>
-        <p v-if="post.summary"
-           class="text-base text-grey-darker mt-2">{{ post.summary }}</p>
+        <p v-if="post.data.summary"
+           class="text-base text-grey-darker mt-2">{{ post.data.summary }}</p>
       </div>
     </div>
   </div>
