@@ -85,7 +85,7 @@
 }
 
 html {
-  @apply leading-normal text-lg font-sans;
+  @apply leading-loose text-lg font-sans;
 }
 
 .post {
@@ -93,19 +93,19 @@ html {
 }
 
 h1 {
-  @apply mt-16 mb-8 text-5xl text-indigo-dark leading-tight;
+  @apply my-8 text-3xl text-indigo-dark leading-tight;
 }
 
 h2 {
-  @apply my-8 text-3xl text-black leading-tight;
+  @apply mt-12 mb-6 text-2xl text-black leading-tight;
 }
 
 h3 {
-  @apply my-6 text-2xl text-black leading-tight;
+  @apply my-6 text-xl text-black leading-tight;
 }
 
 h4, h5, h6 {
-  @apply my-4 text-xl text-black leading-tight;
+  @apply my-4 text-lg text-black leading-tight;
 }
 
 hr {
@@ -113,7 +113,7 @@ hr {
 }
 
 blockquote {
-  @apply text-center text-black px-4 text-xl my-10 font-semibold;
+  @apply border-solid border-l-8 pl-4 pr-6 border-grey-darkest my-8 font-semibold -mx-6;
 }
 
 p {
@@ -122,12 +122,12 @@ p {
 
 p, ol, ul {
   code {
-    @apply text-xs bg-grey-light px-2 py-1 rounded;
+    @apply text-xs bg-grey-light p-1 rounded;
   }
 }
 
 pre {
-  @apply bg-black text-grey-light px-6 py-4 overflow-y-auto text-xs my-10 -mx-6;
+  @apply bg-black text-grey-light px-6 py-4 overflow-y-auto text-xs my-8 -mx-6;
 }
 
 @screen sm {
@@ -137,11 +137,11 @@ pre {
 }
 
 ol, ul {
-  @apply text-grey-darkest my-10;
+  @apply text-grey-darkest my-8;
 }
 
 table {
-  @apply text-grey-darkest my-10 -mx-6;
+  @apply text-grey-darkest my-8 -mx-6;
 
   th, td {
     @apply px-6 py-2;
