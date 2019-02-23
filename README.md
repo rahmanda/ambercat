@@ -95,8 +95,8 @@ The `PostPage.vue` component will accept these properties:
 | data.date | `String` | Date of the post |
 | data.path | `String` | Path to the post |
 | data.readingTime | `Object` | Reading time estimation. The values are `{ String: text, Int: minutes, Int: time, Int: words }` |
-| data.newerPost | `Object` | `{ title, summary, date, path, readingTime }` |
-| data.olderPost | `Object` | `{ title, summary, date, path, readingTime }` |
+| data.newerPost | `Object` | Contains newer post with the same properties as PostPage |
+| data.olderPost | `Object` | Contains older post with the same properties as PostPage |
 
 ### Add a new static page
 

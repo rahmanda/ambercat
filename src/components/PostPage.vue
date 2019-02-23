@@ -19,12 +19,12 @@
       <div v-if="postData.olderPost"
             class="flex-1 px-6 pb-8 text-left">
         <p class="mb-2 text-grey-dark">Older Post</p>
-        <a :href="postData.olderPost.path">← {{ postData.olderPost.title }}</a>
+        <a :href="postData.olderPost.data.path">← {{ postData.olderPost.data.title }}</a>
       </div>
       <div v-if="postData.newerPost"
             class="flex-1 px-6 pb-8 text-left md:text-right">
         <p class="mb-2 text-grey-dark">Newer Post</p>
-        <a :href="postData.newerPost.path">{{ postData.newerPost.title }} →</a>
+        <a :href="postData.newerPost.data.path">{{ postData.newerPost.data.title }} →</a>
       </div>
     </footer>
   </main>
