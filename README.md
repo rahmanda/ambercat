@@ -119,7 +119,8 @@ Create your custom static page component on `src/components` directory, then edi
       component: FourOhFourPage,
     },
     {
-      path: '/your-custom-static-page.html', // .html extension is important
+      // .html extension is important
+      path: '/your-custom-static-page.html',
       component: YourCustomStaticPage,
     },
   ],
@@ -134,7 +135,7 @@ On your `ambercat.config.js`, register new static pages by adding it into `stati
 module.exports = {
   ...
   staticPages: [
-    { filename: 'index', title: 'Ambercat' },
+    { filename: 'index', title: 'Ambercat', description: '....' },
     { filename: '404', title: '404' },
     { filename: 'your-custom-static-page', title: 'Your custom static page' },
   ],
@@ -142,7 +143,7 @@ module.exports = {
 };
 ```
 
-The `title` values will be used to set title page. The `filename` should be matched with the route you just registered on `src/routes.js`.
+The `title` values will be used to set title page. The `filename` should be matched with the route you just registered on `src/routes.js`. The optional `description` value will be used for meta description on your page.
 
 ### Customize tailwind.js
 
