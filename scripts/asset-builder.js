@@ -2,24 +2,19 @@ const webpack = require('webpack');
 const formatMessages = require('webpack-format-messages');
 const logger = require('@vue/cli-shared-utils');
 
-function assetBuilder(configFile, callback) {
-  const compiler = webpack(configFile);
-  if (process.env.NODE_ENV === 'development') {
-    compiler.watch({
-      aggregateTimeout: 300,
-    }, assetBuilderCallback(callback));
-  } else {
-    compiler.run(assetBuilderCallback(callback));
-  }
-
-  return compiler;
+function assetBuilder(configFile) {
+  return new Promise((resolve, reject) => {
+    const compiler = webpack(configFile);
+    compiler.run(assetBuilderCallback(resolve, reject));
+  });
 }
 
-function assetBuilderCallback(callback) {
+function assetBuilderCallback(resolve, reject) {
   return function webpackCallback(err, stats) {
     logger.log(stats.toString({ colors: true }));
     const messages = formatMessages(stats);
-    if (!messages.errors.length && callback) callback();
+    if (!messages.errors.length && resolve) resolve(stats);
+    else reject(err);
   };
 }
 

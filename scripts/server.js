@@ -1,21 +1,33 @@
-const browserSync = require('browser-sync');
-const { require: reqRoot } = require('app-root-path');
+const express = require('express');
 const path = require('path');
+const reload = require('reload');
+const http = require('http');
+const logger = require('@vue/cli-shared-utils');
+const devIp = require('dev-ip');
+const { require: reqRoot } = require('app-root-path');
 const config = reqRoot('config');
+const app = express();
+
+app.use(express.static(config.client.buildPath));
 
 function server() {
-  const serverName = config.serverName;
-  if (browserSync.has(serverName)) {
-    const browser = browserSync.get(serverName);
-    browser.reload();
-  } else {
-    const server = browserSync.create(serverName);
-    server.init({
-      server: path.resolve(config.client.buildPath),
-      port: config.serverPort,
-      open: false,
-    });
-  }
+  const reloadServer = reload(app);
+  const server = http.createServer(app);
+  const ip = devIp();
+  let ipInfo = `  Local: http://localhost:${config.serverPort}`;
+  if (ip) ipInfo += `\n        Public: http://${ip}:${config.serverPort}`;
+  server.listen(config.serverPort, () => {
+    logger.log(`
+      --------------------------------------------
+                  Ambercat Dev Server
+      --------------------------------------------
+
+      ${ipInfo}
+
+      --------------------------------------------
+    `);
+  });
+  return reloadServer;
 }
 
 module.exports = server;

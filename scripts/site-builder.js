@@ -6,20 +6,24 @@ const cleanup = require('./cleanup');
 const compileStatic = require('./static-compiler');
 const buildStaticFiles = require('./static-files-builder');
 
-function build(callback) {
-  cleanup();
-  buildAsset(
-    buildWebpackConfig(),
-    postBuildAsset,
-  );
-
-  function postBuildAsset() {
-    buildStaticFiles();
-    compileStatic()
+function build() {
+  return new Promise((resolve, reject) => {
+    cleanup();
+    buildAsset(buildWebpackConfig())
       .then(() => {
-        if (callback) callback();
+        buildStaticFiles();
+        compileStatic()
+          .then(() => {
+            resolve();
+          })
+          .catch(err => {
+            reject(err);
+          });
+      })
+      .catch(err => {
+        reject(err);
       });
-  }
+  });
 }
 
 module.exports = build;
