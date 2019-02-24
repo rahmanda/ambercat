@@ -10,7 +10,7 @@ const config = reqRoot('config');
 const buildSite = reqRoot('scripts/site-builder');
 const server = reqRoot('scripts/server');
 const wp = new watchpack({
-  aggregateTimeout: 1000,
+  aggregateTimeout: 700,
 });
 
 const watchFiles = [
