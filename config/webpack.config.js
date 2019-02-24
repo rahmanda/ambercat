@@ -6,10 +6,6 @@ const WebpackBar = require('webpackbar');
 
 module.exports = {
   mode: process.env.NODE_ENV,
-  watch: process.env.NODE_ENV === 'development',
-  watchOptions: {
-    ignored: /node_modules/
-  },
   module: {
     rules: [
       {

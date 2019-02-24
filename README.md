@@ -24,13 +24,17 @@ npx ambercat init
 
 ## Run Dev Server
 
-To run dev server, run:
+To start dev server, run:
 
 ``` bash
 npx ambercat dev
 ```
 
-The homepage will be accessible on `http://localhost:3000`.
+For local development, the homepage will be accessible on `http://localhost:3000`.
+
+If you want to preview your blog on your device, you can use the public url which will be printed on your command line. Make sure that your device and your computer are connected to the same network.
+
+Every changes to theme and posts will be triggering browser reload across devices.
 
 ## Add a Post
 

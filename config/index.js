@@ -1,5 +1,6 @@
 const fs = require('fs');
 const { resolve } = require('path');
+const importFresh = require('import-fresh');
 const { setPath, resolve: resRoot } = require('app-root-path');
 
 const defaultUserConfig = require('./default.config.js');
@@ -53,7 +54,7 @@ function getUserConfig(defaultConfig, configFilename) {
     return Object.assign(
       {},
       defaultConfig,
-      require(userConfigFile),
+      importFresh(userConfigFile),
     );
 
   return defaultConfig;
