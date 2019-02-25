@@ -24,4 +24,9 @@ module.exports = {
   configureWebpack(config, isServer) {
     return {};
   },
+  // @param {string} Unprocessed post content in markdown
+  // @return {string}
+  transformPost(content) {
+    return content;
+  },
 };

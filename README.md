@@ -173,3 +173,28 @@ Sometimes you want to add extra scripts like analytics or css tags on template. 
 | pageType | `String` | Determine page type ('page' for regular static page, and 'post' for article page) |
 
 This hook should always return a string if you decide to use it. If you don't need to add anything, simply exclude it from your configuration.
+
+## Transform a Post
+
+To extend your blogging system further like adding a special syntax on markdown, sometimes you need an access to a post compiler. By using `transformPost` hook, you can transform your posts to your liking before they are being written into static files. Below are parameters which `transformPost` accepts.
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| content | `String` | Unprocessed post content in markdown |
+
+To avoid unexpected behavior, you should always return your transformed post text on this hook. If you don't need to add anything, simply exclude this hook from your configuration.
+
+To get you an idea of what this hook is capable of, below example shows you how to add emoji feature on your post by using the hook.
+
+``` js
+// ambercat.config.js
+const emoji = require('node-emoji');
+
+module.exports = {
+ // ...
+ transformPost(content) {
+   const replacer = (match) => emoji.emojify(match);
+   return content.replace(/(:.*)/g, replacer);
+ },
+};
+```
