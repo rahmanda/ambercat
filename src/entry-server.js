@@ -6,8 +6,8 @@ export default context => {
     const filters = [
       {
         name: 'date',
-        fn: function dateFilter(val) {
-          return moment(val).format('D MMMM YYYY');
+        fn: function dateFilter(val, locale = context.data.language) {
+          return moment(val).locale(locale).format('LL');
         },
       }
     ];

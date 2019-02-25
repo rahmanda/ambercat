@@ -1,5 +1,7 @@
 <template>
-  <main role="main">
+  <main role="main"
+        :dir="postData.direction"
+        :class="{ 'rtl': postData.direction === 'rtl' }">
     <section class="post">
       <div v-if="postData.translations || postData.originalPostPath"
           class="text-sm mt-8 text-grey-darker">
@@ -16,7 +18,7 @@
           This is a translated version. Read
           <a :href="postData.originalPostPath">
             original post
-          </a>.
+          </a>
         </span>
       </div>
       <h1>{{ postData.title }}</h1>
@@ -26,10 +28,10 @@
       </p>
       <div class="text-sm mb-8 text-grey-darker">
         <time :datetime="postData.date">
-          {{ postData.date | date }}
+          {{ postData.date | date(postData.language) }}
         </time>
         <span class="mx-1">•</span>
-        <span :title="postData.readingTime.text">{{ postData.readingTime.text }}</span>
+        <span :title="postData.readingTime.text" dir="ltr">{{ postData.readingTime.text }}</span>
       </div>
       <article v-html="postContent"/>
     </section>

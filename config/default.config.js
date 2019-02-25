@@ -1,5 +1,6 @@
 module.exports = {
   language: 'en',
+  direction: 'ltr',
   serverPort: 3000,
   themeDir: 'src',
   buildDir: 'build',

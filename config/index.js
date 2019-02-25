@@ -15,6 +15,7 @@ module.exports = {
   templatePath: resolve(themePath, 'template.html'),
   themePath: resolve(userPath, userConfig.themeDir),
   language: userConfig.language,
+  direction: userConfig.direction,
   serverPort: userConfig.serverPort,
   serverName: 'dev',
   publicPath: '/',
