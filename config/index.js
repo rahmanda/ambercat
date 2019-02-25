@@ -14,6 +14,7 @@ module.exports = {
   userPath,
   templatePath: resolve(themePath, 'template.html'),
   themePath: resolve(userPath, userConfig.themeDir),
+  language: userConfig.language,
   serverPort: userConfig.serverPort,
   serverName: 'dev',
   publicPath: '/',
@@ -25,6 +26,7 @@ module.exports = {
   postExt: 'md',
   tmpPath,
   tmpDir: userConfig.tmpDir,
+  translations: userConfig.translations,
   numOfRecentPosts: userConfig.numOfRecentPosts,
   tailwindConfig: resolve(userPath, userConfig.tailwindConfig),
   client: {

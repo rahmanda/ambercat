@@ -1,6 +1,24 @@
 <template>
   <main role="main">
     <section class="post">
+      <div v-if="postData.translations || postData.originalPostPath"
+          class="text-sm mt-8 text-grey-darker">
+        <span v-if="postData.translations">
+          Translate to:
+          <a v-for="(translation, key) in postData.translations"
+             :key="key"
+             :href="translation.path"
+             class="mx-1">
+            {{ translation.name }}
+          </a>
+        </span>
+        <span v-if="postData.originalPostPath">
+          This is a translated version. Read
+          <a :href="postData.originalPostPath">
+            original post
+          </a>.
+        </span>
+      </div>
       <h1>{{ postData.title }}</h1>
       <p v-if="postData.summary"
          class="text-xl font-semibold text-grey-dark">

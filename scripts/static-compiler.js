@@ -7,13 +7,15 @@ const logger = require('@vue/cli-shared-utils');
 function compileStatic() {
   logger.logWithSpinner('Compiling static files...');
   let processes = [];
+  const { translations } = config;
   processes.push(
-    compilePosts(config.postPath, config.client.buildPath)
+    compilePosts(config.postPath, config.client.buildPath),
   );
   config.staticPages.forEach(({ filename, title, description }) => {
     const context = {
       url: `/${filename}.html`,
       data: {
+        language: config.language,
         title,
         description,
       },
