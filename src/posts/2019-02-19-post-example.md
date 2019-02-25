@@ -157,7 +157,7 @@ The killer feature of `markdown-it` is very effective support of
 
 ### [Emojies](https://github.com/markdown-it/markdown-it-emoji)
 
-> Classic markup: :wink: :crush: :cry: :tear: :laughing: :yum:
+> Classic markup: :face_palm: :pizza: :sweat_drops: :thinking_face: :satisfied: :sneezing_face:
 >
 > Shortcuts (emoticons): :-) :-( 8-) ;)
 

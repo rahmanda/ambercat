@@ -44,6 +44,7 @@ module.exports = {
   cssFilename: devMode ? `${userConfig.buildPrefix}.css` : `${userConfig.buildPrefix}.[hash].css`,
   assetInjector: userConfig.assetInjector,
   configureWebpack: userConfig.configureWebpack,
+  transformPost: userConfig.transformPost,
 };
 
 function getUserConfig(defaultConfig, configFilename) {
