@@ -27,6 +27,10 @@ export function createRouter() {
         component: PostPage,
       },
       {
+        path: '/:locale/:slug',
+        component: PostPage,
+      },
+      {
         path: '**',
         component: FourOhFourPage,
       },

@@ -44,7 +44,9 @@ To add a post, run:
 npx ambercat post <your post title>
 ```
 
-By default, the command will create `YYYY-MM-DD-your-post-title.md` file in your `src/posts` directory. The date prefix will be used to determine the post date.
+By default, the command will create `YYYY-MM-DD-your-post-title/index.md` file in your `src/posts` directory. The date prefix will be used to determine the post date.
+
+Every `index.md` file will be generated into `/your-post-title.html` path.
 
 ## Build Static Site
 
@@ -85,6 +87,9 @@ The `data.posts` contains an array of the most recent posts with these propertie
 | data.date | `String` | Date of the post |
 | data.path | `String` | Path to the post |
 | data.readingTime | `Object` | Reading time estimation. The values are `{ String: text, Int: minutes, Int: time, Int: words }` |
+| data.language | `String` | Language of the post |
+| data.translations | `Array[Object]` | Collection of transactions for the post. The values are `{ name: String, code: String, path: String }`. This property is only available for a post which has translation(s). |
+| data.originalPostPath | `String` | Original post. This property is only available for translation post. |
 
 ### PostPage
 
@@ -99,6 +104,9 @@ The `PostPage.vue` component will accept these properties:
 | data.date | `String` | Date of the post |
 | data.path | `String` | Path to the post |
 | data.readingTime | `Object` | Reading time estimation. The values are `{ String: text, Int: minutes, Int: time, Int: words }` |
+| data.language | `String` | Language of the post |
+| data.translations | `Array[Object]` | Collection of transactions for the post. The values are `{ name: String, code: String, path: String }`. This property is only available for a post which has translation(s). |
+| data.originalPostPath | `String` | Original post. This property is only available for translation post. |
 | data.newerPost | `Object` | Contains newer post with the same properties as PostPage |
 | data.olderPost | `Object` | Contains older post with the same properties as PostPage |
 
@@ -174,7 +182,7 @@ Sometimes you want to add extra scripts like analytics or css tags on template. 
 
 This hook should always return a string if you decide to use it. If you don't need to add anything, simply exclude it from your configuration.
 
-## Transform a Post
+### Transform a Post
 
 To extend your blogging system further like adding a special syntax on markdown, sometimes you need an access to a post compiler. By using `transformPost` hook, you can transform your posts to your liking before they are being written into static files. Below are parameters which `transformPost` accepts.
 
@@ -198,3 +206,65 @@ module.exports = {
  },
 };
 ```
+
+## Localization
+
+Your main blog language is set on `ambercat.config.js`.
+
+```
+// ambercat.config.js
+
+module.exports = {
+  language: 'en',
+  direction: 'ltr',
+  // ...
+};
+```
+
+To make a translation from your main post, create `index.<language-code>.md` under the same directory. The language code should follow [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) standard.
+
+This is how the file structure looks like if there are multiple translations on a single post.
+
+```
+YYYY-MMM-DD-your-post-title/
+  index.md
+  index.es.md
+  index.fr.md
+```
+
+Every new language should be registered to `translations` property on `ambercat.config.js`.
+
+```
+// ambercat.config.js
+
+module.exports = {
+  language: 'en',
+  direction: 'ltr',
+  // register only languages you are using
+  transactions: {
+    es: {
+      name: 'Español',
+      direction: 'ltr',
+    },
+    vi: {
+      name: 'Tiếng Việt',
+      direction: 'ltr',
+    },
+    ar: {
+      name: 'العربية',
+      direction: 'rtl',
+    },
+    ko: {
+      name: '한국어',
+      direction: 'ltr',
+    },
+    ja: {
+      name: '日本語',
+      direction: 'ltr',
+    },
+    // ....
+  },
+};
+```
+
+Every translation will be generated into `/<language-code>/your-post-title.html`.

@@ -171,3 +171,7 @@ a:not(.anchorjs-link) {
 .anchorjs-link {
   @apply text-indigo;
 }
+
+.rtl {
+  direction: rtl;
+}
