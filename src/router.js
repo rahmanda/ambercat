@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import HomePage from './components/HomePage.vue';
 import PostPage from './components/PostPage.vue';
+import ArchivePage from './components/ArchivePage.vue';
 import FourOhFourPage from './components/FourOhFourPage.vue';
 
 Vue.use(Router);
@@ -23,8 +24,16 @@ export function createRouter() {
         component: FourOhFourPage,
       },
       {
+        path: '/archive.html',
+        component: ArchivePage,
+      },
+      {
         path: '/:slug',
         component: PostPage,
+      },
+      {
+        path: '/:locale/index.html',
+        component: ArchivePage,
       },
       {
         path: '/:locale/:slug',

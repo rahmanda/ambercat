@@ -1,8 +1,9 @@
 <template>
-  <main role="main" id="homepage" class="text-lg text-grey-darkest">
+  <main role="main" class="text-lg text-grey-darkest">
     <div class="max-w-md mx-auto px-6 py-12">
-      <h1 class="text-5xl text-indigo-dark mt-0 mb-4">{{ data.title }}</h1>
-      <p class="text-xl mb-0 font-semibold text-grey-dark">{{ data.description }}</p>
+      <h1>{{ data.title }}</h1>
+      <p v-if="data.description"
+         class="text-xl font-semibold text-grey-dark">{{ data.description }}</p>
     </div>
     <div class="max-w-md mx-auto px-6 py-6">
       <div v-for="post in data.posts"
