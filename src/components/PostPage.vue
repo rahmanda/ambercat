@@ -51,8 +51,6 @@
 </template>
 
 <script>
-import { markdownCompiler } from '../vendor';
-
 export default {
   props: ['content', 'data'],
   data() {

@@ -1,6 +1,6 @@
 const { require: reqRoot } = require('app-root-path');
 const config = reqRoot('config');
-const { compilePage, compileHomepage } = reqRoot('lib/page-compiler');
+const compilePage = reqRoot('lib/page-compiler');
 const compilePosts = reqRoot('lib/post-compiler');
 const logger = require('@vue/cli-shared-utils');
 
@@ -11,7 +11,7 @@ function compileStatic() {
   processes.push(
     compilePosts(config.postPath, config.client.buildPath),
   );
-  config.staticPages.forEach(({ filename, title, description }) => {
+  config.staticPages.forEach(({ filename, title, description, numOfPosts }) => {
     const context = {
       url: `/${filename}.html`,
       data: {
@@ -22,14 +22,45 @@ function compileStatic() {
     };
     if (filename === 'index') {
       processes.push(
-        compileHomepage(config.postPath, config.client.buildPath, config.numOfRecentPosts, context)
+        compilePage(
+          config.postPath,
+          config.client.buildPath,
+          context,
+          numOfPosts || config.numOfRecentPosts
+        )
       );
     } else {
       processes.push(
-        compilePage(config.client.buildPath, context)
+        compilePage(
+          config.postPath,
+          config.client.buildPath,
+          context,
+          numOfPosts
+        )
       );
     }
   });
+  if (config.translations) {
+    Object.keys(config.translations).forEach(code => {
+      const translation = config.translations[code];
+      const context = {
+        url: `/${code}/index.html`,
+        data: {
+          language: code,
+          title: translation.archiveTitle || 'Archive',
+          description: translation.archiveDescription,
+        },
+      };
+      processes.push(
+        compilePage(
+          config.postPath,
+          config.client.buildPath,
+          context,
+          'all'
+        )
+      );
+    });
+  }
   return Promise.all(processes)
     .then(() => {
       logger.stopSpinner();

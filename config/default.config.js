@@ -11,8 +11,21 @@ module.exports = {
   tailwindConfig: 'src/tailwind.js',
   staticFilesDir: 'public',
   staticPages: [
-    { filename: 'index', title: 'Ambercat', description: 'Stupidly simple static site generator based on Vue.js and Tailwind CSS' },
-    { filename: '404', title: '404' },
+    {
+      filename: 'index',
+      title: 'Ambercat',
+      description: 'Stupidly simple static site generator based on Vue.js and Tailwind CSS',
+    },
+    {
+      filename: '404',
+      title: '404',
+    },
+    {
+      filename: 'archive',
+      title: 'Archive',
+      description: "Collection of entire blog posts",
+      numOfPosts: 'all',
+    },
   ],
   // @param {string} assetType - contains 'js' or 'css'
   // @param {string} pageType - contains 'page' (regular static page) or 'post'
