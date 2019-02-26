@@ -9,7 +9,7 @@
            class="mb-10">
         <div class="text-sm text-grey-darker">
           <time :datetime="post.data.date">
-            {{ post.data.date | date }}
+            {{ post.data.date | date(post.data.language) }}
           </time>
           <span class="mx-1">•</span>
           <span :title="post.data.readingTime.text">{{ post.data.readingTime.text }}</span>

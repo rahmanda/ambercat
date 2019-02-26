@@ -1,6 +1,6 @@
 <template>
   <main role="main" class="text-lg text-grey-darkest">
-    <div class="max-w-md mx-auto px-6 py-12">
+    <div class="max-w-md mx-auto px-6">
       <h1>{{ data.title }}</h1>
       <p v-if="data.description"
          class="text-xl font-semibold text-grey-dark">{{ data.description }}</p>
@@ -10,7 +10,7 @@
            class="mb-10">
         <div class="text-sm text-grey-darker">
           <time :datetime="post.data.date">
-            {{ post.data.date | date }}
+            {{ post.data.date | date(post.data.language) }}
           </time>
           <span class="mx-1">•</span>
           <span :title="post.data.readingTime.text">{{ post.data.readingTime.text }}</span>
