@@ -147,15 +147,15 @@ On your `ambercat.config.js`, register new static pages by adding it into `stati
 module.exports = {
   ...
   staticPages: [
-    { filename: 'index', title: 'Ambercat', description: '....' },
+    { filename: 'index', title: 'Ambercat', description: '....', numOfPosts: 5 },
     { filename: '404', title: '404' },
-    { filename: 'your-custom-static-page', title: 'Your custom static page' },
+    { filename: 'your-custom-static-page', title: 'Your custom static page', numOfPosts: 'all' },
   ],
   ...
 };
 ```
 
-The `title` values will be used to set title page. The `filename` should be matched with the route you just registered on `src/routes.js`. The optional `description` value will be used for meta description on your page.
+The `title` values will be used to set title page. The `filename` should be matched with the route you just registered on `src/router.js`. The optional `description` value will be used for meta description on your page. The value of `numOfPosts` can be an integer or string `'all'` if you want to make `data.posts` accessible on your static page component.
 
 ### Customize tailwind.js
 
@@ -255,7 +255,7 @@ module.exports = {
   language: 'en',
   direction: 'ltr',
   // register only languages you are using
-  transactions: {
+  translations: {
     es: {
       name: 'Español',
       direction: 'ltr',
@@ -281,4 +281,4 @@ module.exports = {
 };
 ```
 
-Every translation will be generated into `/<language-code>/your-post-title.html`.
+Every translation will be generated into `/<language-code>/your-post-title.html`, and every language will have an archive page on `/<language-code>/index.html`.

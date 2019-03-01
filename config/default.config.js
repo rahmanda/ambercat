@@ -7,7 +7,6 @@ module.exports = {
   buildPrefix: 'client.build',
   tmpDir: 'tmp',
   postDir: 'src/posts',
-  numOfRecentPosts: 5,
   tailwindConfig: 'src/tailwind.js',
   staticFilesDir: 'public',
   staticPages: [
@@ -15,6 +14,7 @@ module.exports = {
       filename: 'index',
       title: 'Ambercat',
       description: 'Stupidly simple static site generator based on Vue.js and Tailwind CSS',
+      numOfPosts: 5,
     },
     {
       filename: '404',
