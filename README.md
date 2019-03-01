@@ -184,7 +184,21 @@ This hook should always return a string if you decide to use it. If you don't ne
 
 ### Transform a Post
 
-To extend your blogging system further like adding a special syntax on markdown, sometimes you need an access to a post compiler. By using `transformPost` hook, you can transform your posts to your liking before they are being written into static files. Below are parameters which `transformPost` accepts.
+Ambercat use [markdown-it](https://github.com/markdown-it/markdown-it) to render your post text. The simplest way to add more features is by adding markdown-it plugins to `markdownPlugins` array on `ambercat.config.js`.
+
+```
+module.exports = {
+  // ...
+  markdownPlugins: [
+    require('markdown-it-emoji'),
+    require('markdown-it-highlight-lines'),
+    // ... or add more plugins
+  ],
+  // ...
+}
+```
+
+You can also extend the markdown renderer further by using `transformPost` hook. Below are parameters which `transformPost` accepts.
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |

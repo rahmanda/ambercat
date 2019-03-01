@@ -27,6 +27,7 @@ module.exports = {
       numOfPosts: 'all',
     },
   ],
+  markdownPlugins: [],
   // @param {string} assetType - contains 'js' or 'css'
   // @param {string} pageType - contains 'page' (regular static page) or 'post'
   // @return {string}
