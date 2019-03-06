@@ -170,7 +170,7 @@ Syntax highlighter is disabled by default. To enable it, register languages on `
 
 module.exports = {
   // ..
-  syntaxLanguages: ['html', 'css', 'js'],
+  syntaxLanguages: ['html', 'css', 'javascript'],
 };
 ```
 
