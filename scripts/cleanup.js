@@ -1,12 +1,12 @@
-const rimraf = require('rimraf');
-const logger = require('@vue/cli-shared-utils');
 const { require: reqRoot } = require('app-root-path');
+const fs = require('fs-extra');
+const logger = reqRoot('lib/helpers/logger');
 const config = reqRoot('config');
 
 function cleanup() {
   logger.logWithSpinner('Cleaning up output directory...');
-  rimraf.sync(config.client.buildPath);
-  rimraf.sync(config.server.buildPath);
+  fs.removeSync(config.client.buildPath);
+  fs.removeSync(config.server.buildPath);
   logger.stopSpinner();
 }
 

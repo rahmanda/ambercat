@@ -1,8 +1,8 @@
-const path = require('path');
 const { require: reqRoot } = require('app-root-path');
+const path = require('path');
 const config = reqRoot('config');
 const importerGenerator = reqRoot('lib/importer-generator');
-const logger = require('@vue/cli-shared-utils');
+const logger = reqRoot('lib/helpers/logger');
 
 function generateImporter() {
   logger.logWithSpinner('Generating importer...');

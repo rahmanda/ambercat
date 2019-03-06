@@ -1,11 +1,11 @@
 process.env.NODE_ENV = 'development';
 
 const path = require('path');
-const watchpack = require('watchpack');
-const logger = require('@vue/cli-shared-utils');
 const { require: reqRoot, setPath } = require('app-root-path');
-
 setPath(path.resolve(__dirname, '..'));
+
+const watchpack = require('watchpack');
+const logger = reqRoot('lib/helpers/logger');
 const config = reqRoot('config');
 const buildSite = reqRoot('scripts/site-builder');
 const server = reqRoot('scripts/server');

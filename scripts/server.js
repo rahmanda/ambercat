@@ -1,10 +1,10 @@
+const { require: reqRoot } = require('app-root-path');
 const express = require('express');
 const path = require('path');
 const reload = require('reload');
 const http = require('http');
-const logger = require('@vue/cli-shared-utils');
 const devIp = require('dev-ip');
-const { require: reqRoot } = require('app-root-path');
+const logger = reqRoot('lib/helpers/logger');
 const config = reqRoot('config');
 const app = express();
 
