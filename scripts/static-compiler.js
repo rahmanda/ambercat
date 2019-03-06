@@ -2,7 +2,7 @@ const { require: reqRoot } = require('app-root-path');
 const config = reqRoot('config');
 const compilePage = reqRoot('lib/page-compiler');
 const compilePosts = reqRoot('lib/post-compiler');
-const logger = require('@vue/cli-shared-utils');
+const logger = reqRoot('lib/helpers/logger');
 
 function compileStatic() {
   logger.logWithSpinner('Compiling static files...');

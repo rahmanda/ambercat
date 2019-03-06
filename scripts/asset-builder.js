@@ -1,6 +1,7 @@
+const { require: reqRoot } = require('app-root-path');
 const webpack = require('webpack');
 const formatMessages = require('webpack-format-messages');
-const logger = require('@vue/cli-shared-utils');
+const logger = reqRoot('lib/helpers/logger');
 
 function assetBuilder(configFile) {
   return new Promise((resolve, reject) => {

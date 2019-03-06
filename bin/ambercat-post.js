@@ -1,12 +1,11 @@
 const path = require('path');
-
 const { resolve: resRoot, require: reqRoot, setPath } = require('app-root-path');
 setPath(path.resolve(__dirname, '..'));
 
 const fs = require('fs-extra');
 const config = reqRoot('config');
 const program = require('commander');
-const logger = require('@vue/cli-shared-utils');
+const logger = reqRoot('lib/helpers/logger');
 const moment = require('moment');
 const squirrelly = require('squirrelly');
 
