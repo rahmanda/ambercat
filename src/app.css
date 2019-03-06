@@ -89,7 +89,7 @@ html {
 }
 
 .post {
-  @apply max-w-md mx-auto px-6 pb-8;
+  @apply max-w-md mx-auto px-4 pb-8;
 }
 
 h1 {
@@ -113,7 +113,7 @@ hr {
 }
 
 blockquote {
-  @apply border-solid border-l-8 pl-4 pr-6 border-grey-darkest my-8 font-semibold -mx-6;
+  @apply border-solid border-l-8 pl-4 pr-6 border-grey-darkest my-8 font-semibold -mx-4;
 }
 
 p {
@@ -127,7 +127,7 @@ p, ol, ul {
 }
 
 pre {
-  @apply bg-black text-grey-light px-6 py-4 overflow-y-auto text-xs my-8 -mx-6;
+  @apply bg-black text-grey-light p-4 overflow-y-auto text-xs my-8 -mx-4;
 }
 
 @screen sm {
@@ -141,10 +141,10 @@ ol, ul {
 }
 
 table {
-  @apply text-grey-darkest my-8 -mx-6;
+  @apply text-grey-darkest my-8 -mx-4;
 
   th, td {
-    @apply px-6 py-2;
+    @apply px-4 py-2;
   }
 
   th {
