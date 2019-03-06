@@ -9,6 +9,7 @@ module.exports = {
   postDir: 'src/posts',
   tailwindConfig: 'src/tailwind.js',
   staticFilesDir: 'public',
+  syntaxLanguages: [],
   staticPages: [
     {
       filename: 'index',

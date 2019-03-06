@@ -30,6 +30,7 @@ module.exports = {
   translations: userConfig.translations,
   numOfRecentPosts: userConfig.numOfRecentPosts,
   tailwindConfig: resolve(userPath, userConfig.tailwindConfig),
+  syntaxLanguages: userConfig.syntaxLanguages,
   client: {
     buildPrefix: userConfig.buildPrefix,
     buildPath: devMode ? tmpPath : resolve(userPath, userConfig.buildDir),
