@@ -161,6 +161,19 @@ The `title` values will be used to set title page. The `filename` should be matc
 
 The default configurations from the original `tailwind init` have mostly been edited following to the default theme design. However, the edited values are left commented so you can easily enable them later. Refer to https://tailwindcss.com/docs/configuration for further guideline.
 
+### Enable Syntax Highlighter
+
+Syntax highlighter is disabled by default. To enable it, register languages on `syntaxLanguages` key on `ambercat.config.js`. Refer to [this page](https://github.com/highlightjs/highlight.js/tree/master/src/languages) for supported language.
+
+``` js
+// ambercat.config.js
+
+module.exports = {
+  // ..
+  syntaxLanguages: ['html', 'css', 'js'],
+};
+```
+
 ## Configuration
 
 All of project configurations are stored in `ambercat.config.js` file and should be self explanatory. Below are descriptions for advanced usage.
