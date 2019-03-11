@@ -1,6 +1,6 @@
 {
   "name": "ambercat",
-  "version": "0.8.1",
+  "version": "0.8.2",
   "description": "Stupidly simple static site generator based on Vue.js and Tailwind CSS",
   "bin": "./bin/ambercat.js",
   "scripts": {
