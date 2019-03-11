@@ -36,7 +36,6 @@
     "@babel/preset-env": "^7.3.1",
     "anchor-js": "^4.2.0",
     "app-root-path": "^2.1.0",
-    "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.5",
     "chalk": "^2.4.2",
     "commander": "^2.19.0",
@@ -73,6 +72,7 @@
     "webpackbar": "^3.1.5"
   },
   "devDependencies": {
+    "babel-eslint": "^10.0.1",
     "eslint": "^5.13.0",
     "eslint-plugin-vue": "^5.1.0"
   }
